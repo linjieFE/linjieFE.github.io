@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mac技巧/" style="font-size: 20px;">mac技巧</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/前题面试题/" style="font-size: 10px;">前题面试题</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
+						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mac技巧/" style="font-size: 20px;">mac技巧</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/前题面试题/" style="font-size: 10px;">前题面试题</a> <a href="/tags/学习笔记/" style="font-size: 20px;">学习笔记</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
 					</div>
 				</section>
 				
@@ -244,6 +244,73 @@
 
       
 
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-关于haslayout" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/26/关于haslayout/" class="article-date">
+  	<time datetime="2016-01-26T02:58:48.000Z" itemprop="datePublished">2016-01-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/26/关于haslayout/">关于IE的下的haslayout问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天早上我们一个前端同事GQL遇到一个问题。在IE7下position:relative层在动态渲染时出现偏移.<br>跟下面这个demo情景相似</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD XHTML 1.0 Transitional//EN"</span></span><br><span class="line"> <span class="string">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;html xmlns=<span class="string">"http://www.w3.org/1999/xhtml"</span>&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;IE7 absolute positioning bug&lt;/title&gt;</span><br><span class="line">    &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">      <span class="comment">#panel &#123; position: relative; border: solid 1px black; &#125;</span></span><br><span class="line">      <span class="comment">#spacer &#123; height: 100px; &#125;</span></span><br><span class="line">      <span class="comment">#footer &#123; position: absolute; bottom: 0px; &#125;</span></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      <span class="keyword">function</span> <span class="function"><span class="title">toggle</span></span>() &#123;</span><br><span class="line">        var spacer = document.getElementById(<span class="string">"spacer"</span>);</span><br><span class="line">        var style = <span class="string">"block"</span>;</span><br><span class="line">        <span class="keyword">if</span> (spacer.style.display == <span class="string">"block"</span> || spacer.style.display == <span class="string">""</span>) &#123;</span><br><span class="line">          style = <span class="string">"none"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        spacer.style.display = style;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"panel"</span>&gt;</span><br><span class="line">      &lt;button onclick=<span class="string">"toggle();"</span>&gt;Click me&lt;/button&gt;</span><br><span class="line">      &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;</span><br><span class="line">      &lt;div id=<span class="string">"spacer"</span>&gt;&lt;/div&gt;</span><br><span class="line">      &lt;div id=<span class="string">"footer"</span>&gt;This is some footer&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在IE7中，点击”Click me”，“This is some footer”没有随着边框向上走。在IE8/9/10/11，firefox里面都是正常。</p>
+<p>二、原因分析<br>1 #panel没有布局，因此当#panel重新布局的时候，IE7没有重画#panel的孩子。<br>2 position:relative没有触发IE的hasLayout属性。只有当元素的hasLayout属性被设为了true，才能对自己和子孙元素进行尺寸计算和定位。<br>3 overflow:hidden和float:left和zoom:1都能触发hasLayout属性。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/26/关于haslayout/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
