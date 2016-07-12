@@ -4,17 +4,39 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: 前题面试题 | 前端.林姐姐</title>
+  <title>for循环的执行顺序 | 前端.林姐姐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端.林姐姐">
-<meta property="og:url" content="http://yoursite.com/tags/前题面试题/index.html">
+  <meta name="description" content="for循环的执行顺序用如下表达式：
+for(expression1;expression2;expression3)
+{   
+          expression4;
+}
+
+执行的顺序应该是：
+1）第一次循环，即初始化循环。首先执行表达式expression1（一般为初始化语句）；再执行expression2（一般为条件判断语句），判断expression1是否符合expression2的条">
+<meta property="og:type" content="article">
+<meta property="og:title" content="for循环的执行顺序">
+<meta property="og:url" content="http://yoursite.com/2016/02/02/for循环的执行顺序/index.html">
 <meta property="og:site_name" content="前端.林姐姐">
-<meta property="og:description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
+<meta property="og:description" content="for循环的执行顺序用如下表达式：
+for(expression1;expression2;expression3)
+{   
+          expression4;
+}
+
+执行的顺序应该是：
+1）第一次循环，即初始化循环。首先执行表达式expression1（一般为初始化语句）；再执行expression2（一般为条件判断语句），判断expression1是否符合expression2的条">
+<meta property="og:updated_time" content="2016-02-02T11:38:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端.林姐姐">
-<meta name="twitter:description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
+<meta name="twitter:title" content="for循环的执行顺序">
+<meta name="twitter:description" content="for循环的执行顺序用如下表达式：
+for(expression1;expression2;expression3)
+{   
+          expression4;
+}
+
+执行的顺序应该是：
+1）第一次循环，即初始化循环。首先执行表达式expression1（一般为初始化语句）；再执行expression2（一般为条件判断语句），判断expression1是否符合expression2的条">
   
     <link rel="alternative" href="/atom.xml" title="前端.林姐姐" type="application/atom+xml">
   
@@ -200,53 +222,122 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-for循环的执行顺序" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/25/关于面试/" class="archive-article-date">
-  	<time datetime="2016-01-25T15:32:50.000Z" itemprop="datePublished">1月 25</time>
+    <div class="article-meta">
+      <a href="/2016/02/02/for循环的执行顺序/" class="article-date">
+  	<time datetime="2016-02-02T07:38:29.000Z" itemprop="datePublished">2016-02-02</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/25/关于面试/">关于面试</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      for循环的执行顺序
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前题面试题/">前题面试题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
 	</div>
 
-          
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/知识点滴/">知识点滴</a>
+	</div>
 
-        </div>
+
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>for循环的执行顺序用如下表达式：</p>
+<pre><code class="JavaScript"><span class="keyword">for</span>(expression1;expression2;expression3)
+{   
+          expression4;
+}
+</code></pre>
+<pre><code>执行的顺序应该是：
+</code></pre><h2 id="1_uFF09_u7B2C_u4E00_u6B21_u5FAA_u73AF_uFF0C_u5373_u521D_u59CB_u5316_u5FAA_u73AF_u3002"><a href="#1_uFF09_u7B2C_u4E00_u6B21_u5FAA_u73AF_uFF0C_u5373_u521D_u59CB_u5316_u5FAA_u73AF_u3002" class="headerlink" title="1）第一次循环，即初始化循环。"></a>1）第一次循环，即初始化循环。</h2><pre><code>首先执行表达式expression1（一般为初始化语句）；再执行expression2（一般为条件判断语句），判断expression1是否符合expression2的条件；如果符合，则执行expression4，否则，停止执行；最后执行expression3。
+</code></pre><h2 id="2_uFF09_u7B2CN_uFF08N_26gt_3B_3D2_uFF09_u6B21_u5FAA_u73AF"><a href="#2_uFF09_u7B2CN_uFF08N_26gt_3B_3D2_uFF09_u6B21_u5FAA_u73AF" class="headerlink" title="2）第N（N&gt;=2）次循环"></a>2）第N（N&gt;=2）次循环</h2><pre><code>首先执行expression2，判断在expression3是否符合在expression2要求；如果符合，则继续执行在expression4，否则，停止执行。最后执行在expression3。如此往复，直至expression3不满足在expression2条件是为止。
+</code></pre><h2 id="u603B_u7ED3_uFF1A"><a href="#u603B_u7ED3_uFF1A" class="headerlink" title="总结："></a>总结：</h2><pre><code>总的来说，执行的顺序是一致的。先条件判断（expression2），再函数体执行（expression4），最后for执行（expression3）。往复......区别在于，条件判断的对象。第一次判断时，对象为初始化语句（expression1），后续的判断对象为执行后的结果（expression3）。
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/01/Javascript-严格模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javascript 严格模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="for循环的执行顺序" data-title="for循环的执行顺序" data-url="http://yoursite.com/2016/02/02/for循环的执行顺序/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -272,9 +363,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}

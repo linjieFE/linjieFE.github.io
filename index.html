@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mac技巧/" style="font-size: 15px;">mac技巧</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/前题面试题/" style="font-size: 10px;">前题面试题</a> <a href="/tags/学习笔记/" style="font-size: 20px;">学习笔记</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mac技巧/" style="font-size: 15px;">mac技巧</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/前题面试题/" style="font-size: 10px;">前题面试题</a> <a href="/tags/学习笔记/" style="font-size: 20px;">学习笔记</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,76 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-for循环的执行顺序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/02/for循环的执行顺序/" class="article-date">
+  	<time datetime="2016-02-02T07:38:29.000Z" itemprop="datePublished">2016-02-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/02/for循环的执行顺序/">for循环的执行顺序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>for循环的执行顺序用如下表达式：</p>
+<pre><code class="JavaScript"><span class="keyword">for</span>(expression1;expression2;expression3)
+{   
+          expression4;
+}
+</code></pre>
+<pre><code>执行的顺序应该是：
+</code></pre><h2 id="1_uFF09_u7B2C_u4E00_u6B21_u5FAA_u73AF_uFF0C_u5373_u521D_u59CB_u5316_u5FAA_u73AF_u3002"><a href="#1_uFF09_u7B2C_u4E00_u6B21_u5FAA_u73AF_uFF0C_u5373_u521D_u59CB_u5316_u5FAA_u73AF_u3002" class="headerlink" title="1）第一次循环，即初始化循环。"></a>1）第一次循环，即初始化循环。</h2><pre><code>首先执行表达式expression1（一般为初始化语句）；再执行expression2（一般为条件判断语句），判断expression1是否符合expression2的条件；如果符合，则执行expression4，否则，停止执行；最后执行expression3。
+</code></pre><h2 id="2_uFF09_u7B2CN_uFF08N_26gt_3B_3D2_uFF09_u6B21_u5FAA_u73AF"><a href="#2_uFF09_u7B2CN_uFF08N_26gt_3B_3D2_uFF09_u6B21_u5FAA_u73AF" class="headerlink" title="2）第N（N&gt;=2）次循环"></a>2）第N（N&gt;=2）次循环</h2><pre><code>首先执行expression2，判断在expression3是否符合在expression2要求；如果符合，则继续执行在expression4，否则，停止执行。最后执行在expression3。如此往复，直至expression3不满足在expression2条件是为止。
+</code></pre><h2 id="u603B_u7ED3_uFF1A"><a href="#u603B_u7ED3_uFF1A" class="headerlink" title="总结："></a>总结：</h2><pre><code>总的来说，执行的顺序是一致的。先条件判断（expression2），再函数体执行（expression4），最后for执行（expression3）。往复......区别在于，条件判断的对象。第一次判断时，对象为初始化语句（expression1），后续的判断对象为执行后的结果（expression3）。
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/知识点滴/">知识点滴</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Javascript-严格模式" class="article article-type-post" itemscope itemprop="blogPost">
   
