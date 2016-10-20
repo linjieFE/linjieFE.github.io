@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>react 环境搭建 | 前端.林姐姐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、node安装首先，需要node环境支持，如果你还没有安装node.js，请移步nodejs官网。
+2、初始化项目1npm init
+回车即可 到最后，你的项目根目录会多一个package.json的文件。
+3、添加项目依赖接下来，我们打开package.json文件，给项目添加依赖包。当然，最简单的方法便是直接修改package.json文件，然后通过npm install安装依赖即可，但是考">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react 环境搭建">
+<meta property="og:url" content="http://yoursite.com/2016/10/20/react-环境搭建/index.html">
+<meta property="og:site_name" content="前端.林姐姐">
+<meta property="og:description" content="1、node安装首先，需要node环境支持，如果你还没有安装node.js，请移步nodejs官网。
+2、初始化项目1npm init
+回车即可 到最后，你的项目根目录会多一个package.json的文件。
+3、添加项目依赖接下来，我们打开package.json文件，给项目添加依赖包。当然，最简单的方法便是直接修改package.json文件，然后通过npm install安装依赖即可，但是考">
+<meta property="og:image" content="http://yoursite.com/img/react_files.jpg">
+<meta property="og:updated_time" content="2016-10-20T10:56:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react 环境搭建">
+<meta name="twitter:description" content="1、node安装首先，需要node环境支持，如果你还没有安装node.js，请移步nodejs官网。
+2、初始化项目1npm init
+回车即可 到最后，你的项目根目录会多一个package.json的文件。
+3、添加项目依赖接下来，我们打开package.json文件，给项目添加依赖包。当然，最简单的方法便是直接修改package.json文件，然后通过npm install安装依赖即可，但是考">
+  
+    <link rel="alternative" href="/atom.xml" title="前端.林姐姐" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="img/linjie.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="undefined" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">林姐姐</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">让未来的你的感谢现在的自己！</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/学习笔记/">学习笔记</a></li>
+				        
+							<li><a href="/categories/技术摘录/">技术摘录</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/linjieFE" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:solocode@163.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mac技巧/" style="font-size: 13.33px;">mac技巧</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/前题面试题/" style="font-size: 10px;">前题面试题</a> <a href="/tags/学习笔记/" style="font-size: 20px;">学习笔记</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/随笔/" style="font-size: 16.67px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ruanyifeng.com/home.html">阮一峰ES6</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://nodeapi.ucdok.com/api/">NodeJS在线文档</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://jquery.cuishifeng.cn">jquery在线文档</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3school.com.cn/js/">javascript手册</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.phpstudy.net/css3/">css3在线手册</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.css6.com">凯哥的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">80s，来自祖国最东端乌苏里江畔。爱好运动和音乐，希望在这里可以跟一样爱好前端的朋友共同进步！</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">林姐姐</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="undefined" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">林姐姐</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">让未来的你的感谢现在的自己！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/学习笔记/">学习笔记</a></li>
+		        
+					<li><a href="/categories/技术摘录/">技术摘录</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/linjieFE" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:solocode@163.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-react-环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/20/react-环境搭建/" class="article-date">
+  	<time datetime="2016-10-20T10:12:15.000Z" itemprop="datePublished">2016-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      react 环境搭建
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1_u3001node_u5B89_u88C5"><a href="#1_u3001node_u5B89_u88C5" class="headerlink" title="1、node安装"></a>1、node安装</h2><p>首先，需要node环境支持，如果你还没有安装node.js，请移步<a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs官网</a>。</p>
+<h2 id="2_u3001_u521D_u59CB_u5316_u9879_u76EE"><a href="#2_u3001_u521D_u59CB_u5316_u9879_u76EE" class="headerlink" title="2、初始化项目"></a>2、初始化项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<p>回车即可 到最后，你的项目根目录会多一个package.json的文件。</p>
+<h2 id="3_u3001_u6DFB_u52A0_u9879_u76EE_u4F9D_u8D56"><a href="#3_u3001_u6DFB_u52A0_u9879_u76EE_u4F9D_u8D56" class="headerlink" title="3、添加项目依赖"></a>3、添加项目依赖</h2><p>接下来，我们打开package.json文件，给项目添加依赖包。当然，最简单的方法便是直接修改package.json文件，然后通过npm install安装依赖即可，但是考虑到依赖包的不断更新迭代，或许今后的不久就已经不是当前版本，为了能保证，我们每个看到这边文章的童鞋都是用的最新依赖包，我们直接通过npm install  **  –save-dev方式来安装我们依赖包。</p>
+<p>首先，我们来安装dependencies：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react react-dom lodash</span><br></pre></td></tr></table></figure>
+<p>按理来说，上面的命令并没有任何问题，但是小编却在这里遇到一个坑，那就是项目取名为react，然后再安装react的时候被拒绝<br>当然，解决方法就是重新命名，为了避免不必要的麻烦，还是推荐小伙伴们不要把项目名称命名成你要安装的包名，譬如：react，webpack等等。</p>
+<p>泪的教训：如果你遇到上述的错误，请删掉该项目重新新建一个项目，因为无论如何也还是会报这个错误，包括重启也是于事无补。</p>
+<p>再次安装react的时候，切忌一定要安装到生产依赖。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev react</span><br></pre></td></tr></table></figure></p>
+<p>不出意外，应该是可以了，接下来我们就可以安装其他依赖。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel babel-core babel-loader babel-preset-es2015 babel-preset-react css-loader style-loader react-router webpack webpack-dev-server</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react-dom lodash --save</span><br></pre></td></tr></table></figure>
+<p>最后提醒一下，webpack和webpack-dev-server这两个包需要全局安装。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g webpack webpack-dev-server</span><br></pre></td></tr></table></figure></p>
+<p>到这里我们的依赖包就安装完毕。</p>
+<p>以下便是package.json的最终代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="string">"name"</span>: <span class="string">"react-demo"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"description"</span>: <span class="string">""</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line"></span><br><span class="line"><span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line"></span><br><span class="line"><span class="string">"babel"</span>: <span class="string">"^6.5.2"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"babel-core"</span>: <span class="string">"^6.13.2"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"babel-loader"</span>: <span class="string">"^6.2.4"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"babel-preset-es2015"</span>: <span class="string">"^6.13.2"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"babel-preset-react"</span>: <span class="string">"^6.11.1"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"css-loader"</span>: <span class="string">"^0.23.1"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"react"</span>: <span class="string">"^15.3.0"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"react-hot-loader"</span>: <span class="string">"^1.3.0"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"react-router"</span>: <span class="string">"^2.6.1"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"style-loader"</span>: <span class="string">"^0.13.1"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"webpack"</span>: <span class="string">"^1.13.1"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"webpack-dev-server"</span>: <span class="string">"^1.14.1"</span></span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="string">"dependencies"</span>: &#123;</span><br><span class="line"></span><br><span class="line"><span class="string">"lodash"</span>: <span class="string">"^4.15.0"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"react-dom"</span>: <span class="string">"^15.3.0"</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="4_u3001_u914D_u7F6Ewebpack"><a href="#4_u3001_u914D_u7F6Ewebpack" class="headerlink" title="4、配置webpack"></a>4、配置webpack</h2><p>新建一个webpack.config.js文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">var webpack = require(<span class="string">"webpack"</span>)</span><br><span class="line"></span><br><span class="line">var path = require(<span class="string">"path"</span>)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line"></span><br><span class="line">devtool: <span class="string">"inline-source-map"</span>,</span><br><span class="line"></span><br><span class="line">entry: [</span><br><span class="line"></span><br><span class="line"><span class="string">"webpack-dev-server/client?http://127.0.0.1:8080/"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"webpack/hot/only-dev-server"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"./app"</span></span><br><span class="line"></span><br><span class="line">],</span><br><span class="line"></span><br><span class="line">output: &#123;</span><br><span class="line"></span><br><span class="line">path: path.join(__dirname, <span class="string">"public"</span>),</span><br><span class="line"></span><br><span class="line">filename: <span class="string">"bundle.js"</span></span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">resolve: &#123;</span><br><span class="line"></span><br><span class="line">modulesDirectories: [<span class="string">"node_modules"</span>, <span class="string">"app"</span>],</span><br><span class="line"></span><br><span class="line">extensions: [<span class="string">""</span>, <span class="string">".js"</span>]</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">module: &#123;</span><br><span class="line"></span><br><span class="line">loaders: [</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>: /\.jsx?$/,</span><br><span class="line"></span><br><span class="line">exclude: /node_modules/,</span><br><span class="line"></span><br><span class="line">loaders: [<span class="string">"react-hot"</span>, <span class="string">"babel?presets[]=react,presets[]=es2015"</span>]</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>: /\.css?$/,</span><br><span class="line"></span><br><span class="line">exclude: /node_modules/,</span><br><span class="line"></span><br><span class="line">loaders: [<span class="string">"style"</span>, <span class="string">"css"</span>]</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">plugins: [</span><br><span class="line"></span><br><span class="line">new webpack.HotModuleReplacementPlugin(),</span><br><span class="line"></span><br><span class="line">new webpack.NoErrorsPlugin()</span><br><span class="line"></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上便是webpack的基本配置，具体的webpack配置以后会单独介绍。</p>
+<h2 id="5_u3001_u9879_u76EE_u6587_u4EF6"><a href="#5_u3001_u9879_u76EE_u6587_u4EF6" class="headerlink" title="5、项目文件"></a>5、项目文件</h2><p><img src="/img/react_files.jpg" alt=""></p>
+<p>index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>React demo<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"app"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>index.js<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import React from 'react'</span><br><span class="line"></span><br><span class="line">import &#123;render&#125; from 'react-dom'render(</span><br><span class="line"></span><br><span class="line">render(<span class="tag">&lt;<span class="title">div</span>&gt;</span>hello wold<span class="tag">&lt;/<span class="title">div</span>&gt;</span>,document.getElementById("app"));</span><br></pre></td></tr></table></figure></p>
+<p>这个时候，一个简单的hello word就已经完成，运行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack-dev-server</span><br></pre></td></tr></table></figure>
+<p>使用浏览器打开<a href="http://127.0.0.1:8080就能看到hello" target="_blank" rel="external">http://127.0.0.1:8080就能看到hello</a> world。这里的webpack-dev-server可以实时监测文件修改，已实时观看最终效果。</p>
+<p>但是每次要预览效果，我们要输入这么一大串，难免有所不便，</p>
+<p>打开package.json文件，找到scripts结点，更改如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line"></span><br><span class="line"><span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">"dev"</span>:<span class="string">"webpack-dev-server"</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样，我们就只需要在命令行中输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure></p>
+<p>当然，如果你嫌上面的步骤太过繁琐，你可以直接下载<a href="https://github.com/swimly/react-demo" target="_blank" rel="external">github</a>上面的代码，然后直接运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>文／Swimly（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/0d7a70e39d2e" target="_blank" rel="external">http://www.jianshu.com/p/0d7a70e39d2e</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/20/react-native-第一个demo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react-native 第一个demo</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="react-环境搭建" data-title="react 环境搭建" data-url="http://yoursite.com/2016/10/20/react-环境搭建/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 林姐姐
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
