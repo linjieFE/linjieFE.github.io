@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mac技巧/" style="font-size: 13.33px;">mac技巧</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/前题面试题/" style="font-size: 10px;">前题面试题</a> <a href="/tags/学习笔记/" style="font-size: 20px;">学习笔记</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/随笔/" style="font-size: 16.67px;">随笔</a>
+						<a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/mac技巧/" style="font-size: 13.33px;">mac技巧</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/前题面试题/" style="font-size: 10px;">前题面试题</a> <a href="/tags/学习笔记/" style="font-size: 20px;">学习笔记</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/随笔/" style="font-size: 16.67px;">随笔</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,80 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-react-native-第一个demo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/20/react-native-第一个demo/" class="article-date">
+  	<time datetime="2016-10-20T07:18:06.000Z" itemprop="datePublished">2016-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/20/react-native-第一个demo/">react-native 第一个demo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="React_Native_Mac_u73AF_u5883_u642D_u5EFA"><a href="#React_Native_Mac_u73AF_u5883_u642D_u5EFA" class="headerlink" title="React Native Mac环境搭建"></a>React Native Mac环境搭建</h1><h2 id="1_u3001_u5B89_u88C5Homebrew"><a href="#1_u3001_u5B89_u88C5Homebrew" class="headerlink" title="1、安装Homebrew"></a>1、安装Homebrew</h2><p>安装Homebrew是为安装Node.js做前提准备。<br>安装命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>注：可以通过下面命令查看Homebrew是否安装成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew -v</span><br><span class="line">Homebrew/homebrew-core (git revision <span class="number">93</span>f1; last commit <span class="number">2016</span>-<span class="number">05</span>-<span class="number">23</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="2_u3001_u5B89_u88C5Node-js"><a href="#2_u3001_u5B89_u88C5Node-js" class="headerlink" title="2、安装Node.js"></a>2、安装Node.js</h2><p>下载双击安装即可：<br>下载地址：<br><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a><br>Node.js 需要 4.0 及其以上版本。安装好之后，npm 也有了。</p>
+<h2 id="3_u3001_u5B89_u88C5React_Native__u547D_u4EE4_u884C_u5DE5_u5177"><a href="#3_u3001_u5B89_u88C5React_Native__u547D_u4EE4_u884C_u5DE5_u5177" class="headerlink" title="3、安装React Native 命令行工具"></a>3、安装React Native 命令行工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
+<h2 id="4_u3001_u5B89_u88C5Xcode_uFF0C_u4F30_u8BA1iOS_u5F00_u53D1_u7684_u57FA_u672C_u90FD_u5B89_u88C5_u6709"><a href="#4_u3001_u5B89_u88C5Xcode_uFF0C_u4F30_u8BA1iOS_u5F00_u53D1_u7684_u57FA_u672C_u90FD_u5B89_u88C5_u6709" class="headerlink" title="4、安装Xcode，估计iOS开发的基本都安装有."></a>4、安装Xcode，估计iOS开发的基本都安装有.</h2><p>Xcode 7.0 或更高版本下载地 址：<br><a href="https://developer.apple.com/xcode/downloads/" target="_blank" rel="external">https://developer.apple.com/xcode/downloads/</a></p>
+<h2 id="5_u3001_u5B89_u88C5_watchman__u548C_flow"><a href="#5_u3001_u5B89_u88C5_watchman__u548C_flow" class="headerlink" title="5、安装 watchman 和 flow"></a>5、安装 watchman 和 flow</h2><p>监控文件变化和类型检查的。安装如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install watchman</span><br><span class="line">brew install flow</span><br></pre></td></tr></table></figure>
+<h2 id="6_u3001_u521D_u59CB_u5316_u4E00_u4E2A_u9879_u76EE"><a href="#6_u3001_u521D_u59CB_u5316_u4E00_u4E2A_u9879_u76EE" class="headerlink" title="6、初始化一个项目"></a>6、初始化一个项目</h2><p>打开终端，在某个目录下输入命令(这一步会有点慢，耐心等待一下):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init HelloWorld</span><br></pre></td></tr></table></figure></p>
+<h3 id="u8FD0_u884C_u9879_u76EE"><a href="#u8FD0_u884C_u9879_u76EE" class="headerlink" title="运行项目"></a>运行项目</h3><p><img src="/img/rn-desk.png" alt=""></p>
+<p>用XCode打开ios/HelloWorld.xcodeproj文件，点击键盘”⌘-R”或者点击”Run”，编译运行项目。会启动React-Native服务和iOS模拟器。<br>在iOS模拟器中可以看到如图界面：<br><img src="/img/rn_helloworld.png" alt=""></p>
+<p>React-Native服务在编写过程中要一直开着 如果不小心把它关了，没关系，可以在终端输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<p>来重新开启服务</p>
+<p>好了，看到这里，如果你已经成功配置了React-Native的环境，并且新建并成功运行了第一个程序了。那么，就先恭喜了，我们甚至没有写一行代码，就已经成功运行了第一个React-Native的程序，是不是还挺简单的。正所谓，良好的开端是成功的一半。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-gulp学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
