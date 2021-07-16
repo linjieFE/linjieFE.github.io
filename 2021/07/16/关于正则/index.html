@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2016/2 | 前端.林杰</title>
+  <title>土味正则表达式 | 前端.林杰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端.林杰">
-<meta property="og:url" content="http://yoursite.com/archives/2016/02/index.html">
+  <meta name="description" content="很久没更新，本着生命不息，学习不止的态度，趁着大家顶着7月的烈日炎炎出去团建，而我在公司吹着免费空调、喝着吴老板请的星爸爸、摸着鱼……（好了不能再说了，否则要去财务领工资了）的时间打开沉封已久的博客，随便更新点东西今天不讲新技术，不说新轮子。扒一扒百家通用的基础 正则学习任何语言最好的线上教科书莫过于官方文档，这里附上链接，大家自行翻阅 土味介绍为什么说正则是百家通，如果你接触过某一门后端语言，无">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="土味正则表达式">
+<meta property="og:url" content="http://yoursite.com/2021/07/16/关于正则/index.html">
 <meta property="og:site_name" content="前端.林杰">
-<meta property="og:description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
+<meta property="og:description" content="很久没更新，本着生命不息，学习不止的态度，趁着大家顶着7月的烈日炎炎出去团建，而我在公司吹着免费空调、喝着吴老板请的星爸爸、摸着鱼……（好了不能再说了，否则要去财务领工资了）的时间打开沉封已久的博客，随便更新点东西今天不讲新技术，不说新轮子。扒一扒百家通用的基础 正则学习任何语言最好的线上教科书莫过于官方文档，这里附上链接，大家自行翻阅 土味介绍为什么说正则是百家通，如果你接触过某一门后端语言，无">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-07-16T13:48:09.459Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端.林杰">
-<meta name="twitter:description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
+<meta name="twitter:title" content="土味正则表达式">
+<meta name="twitter:description" content="很久没更新，本着生命不息，学习不止的态度，趁着大家顶着7月的烈日炎炎出去团建，而我在公司吹着免费空调、喝着吴老板请的星爸爸、摸着鱼……（好了不能再说了，否则要去财务领工资了）的时间打开沉封已久的博客，随便更新点东西今天不讲新技术，不说新轮子。扒一扒百家通用的基础 正则学习任何语言最好的线上教科书莫过于官方文档，这里附上链接，大家自行翻阅 土味介绍为什么说正则是百家通，如果你接触过某一门后端语言，无">
   
     <link rel="alternative" href="/atom.xml" title="前端.林杰" type="application/atom+xml">
   
@@ -149,93 +151,119 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-关于正则" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/02/for循环的执行顺序/" class="archive-article-date">
-  	<time datetime="2016-02-02T07:38:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/02/for循环的执行顺序/">for循环的执行顺序</a>
+    <h1 class="article-title" itemprop="name">
+      土味正则表达式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/07/16/关于正则/" class="archive-article-date">
+  	<time datetime="2021-07-16T05:12:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很久没更新，本着生命不息，学习不止的态度，<br>趁着大家顶着7月的烈日炎炎出去团建，而我在公司吹着免费空调、喝着吴老板请的星爸爸、摸着鱼……（好了不能再说了，否则要去财务领工资了）的时间打开沉封已久的博客，随便更新点东西<br>今天不讲新技术，不说新轮子。扒一扒百家通用的基础 <code>正则</code><br>学习任何语言最好的线上教科书莫过于<a href="https://doc.houdunren.com/php/5%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" target="_blank" rel="noopener">官方文档</a>，这里附上链接，大家自行翻阅</p>
+<h2 id="土味介绍"><a href="#土味介绍" class="headerlink" title="土味介绍"></a>土味介绍</h2><p>为什么说<code>正则</code>是百家通，如果你接触过某一门后端语言，无论那一种，都会用到正则表示式，前端也不例外， 你会发现它他们语法都差不多，正则就像一个小弟，需要依赖不同宿主的环境。只是不同的语法环境中使用不同的函数调用它就可以了。<br>所以，你如果从一种语言环境切换到别一个种言环境中使用<code>正则</code>，你只需要学习这种语言调用<code>正则</code>的函数方法就可以了。</p>
+<h2 id="正则的应用场景"><a href="#正则的应用场景" class="headerlink" title="正则的应用场景"></a>正则的应用场景</h2><p>最多的应用场景 就是字符串的<code>增删改查</code>,可能这里有人会说，前端不是已经有很多处理一些字符串的方法了吗？说的没错，但<code>正则</code>的方式要更强悍些。这种感觉就好像过去的<code>老人机</code>与<code>智能机</code>的对比。<br>话不闲扯，开始上干货……</p>
+<h4 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h4><p>🌰1：从一堆字符串中全局找数字<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">'linjie20210716'</span>;</span><br><span class="line"><span class="comment">// 传统方式</span></span><br><span class="line"><span class="keyword">let</span> nums = [...str].filter(<span class="function"><span class="params">a</span>=&gt;</span> !<span class="built_in">Number</span>.isNaN(parsesInt(a))).join(<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正则匹配 </span></span><br><span class="line">str.match(<span class="regexp">/\d/g</span>).join(<span class="string">''</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="还有好多好多的-🌰"><a href="#还有好多好多的-🌰" class="headerlink" title="还有好多好多的 🌰"></a>还有好多好多的 🌰</h2><h4 id="🌰1：字面量。比如：现在我们让正则在一堆字符串里找小姐姐"><a href="#🌰1：字面量。比如：现在我们让正则在一堆字符串里找小姐姐" class="headerlink" title="🌰1：字面量。比如：现在我们让正则在一堆字符串里找小姐姐"></a>🌰1：字面量。比如：现在我们让正则在一堆字符串里找<code>小姐姐</code></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">'xiaojiejie20210716'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/xiaojiejie/</span>.test(str)) <span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里 小姐姐 要是个字符串字面量，如果我们现在把 小姐姐 放在 变量里 返回的就是 false</span></span><br><span class="line"><span class="keyword">var</span> reg=<span class="string">'xiaojiejie'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/reg/</span>.test(str)) <span class="comment">// =&gt; false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果你一起想要用变量的形式 也有其它可以支持的方式，第一种就是 eval() ，🌰2：会绍第二种 </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">eval</span>(<span class="string">`/<span class="subst">$&#123;reg&#125;</span>/`</span>).test(str)) <span class="comment">//=&gt; true</span></span><br></pre></td></tr></table></figure>
+<h4 id="🌰2：用对象创建正则表达式"><a href="#🌰2：用对象创建正则表达式" class="headerlink" title="🌰2：用对象创建正则表达式"></a>🌰2：用对象创建正则表达式</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> str =<span class="string">'xiaojiejie20210716xiaojiejie'</span>;</span><br><span class="line"><span class="keyword">let</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'xiaojiejie'</span>,<span class="string">'g'</span>) <span class="comment">//g =&gt; 代指全局 </span></span><br><span class="line">reg.test(str)</span><br><span class="line"><span class="comment">//这里的小姐姐也可以用变量代替 结果是一样的</span></span><br><span class="line"><span class="keyword">let</span> found = <span class="string">'xiaojiejie'</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(found,<span class="string">'g'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 现在我们找出所有的小姐姐，进行替换</span></span><br><span class="line"></span><br><span class="line">str.replace(reg, search =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'小姐姐'</span>;</span><br><span class="line">&#125;) <span class="comment">// =&gt; 小姐姐20210716小姐姐</span></span><br></pre></td></tr></table></figure>
+<h4 id="选择符-类似于-js语法中的或"><a href="#选择符-类似于-js语法中的或" class="headerlink" title="选择符 | 类似于 js语法中的或 ||"></a>选择符 <code>|</code> 类似于 js语法中的<code>或</code> <code>||</code></h4><p>🌰3：这里判断一个电话号码是不是北京或上海的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">'010-12345678'</span>;</span><br><span class="line">/^(<span class="number">010</span>|<span class="number">021</span>)\-\d&#123;<span class="number">7</span><span class="number">-8</span>&#125;$/.test(str) <span class="comment">//=&gt; 出现任意一种则返回 true </span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>土味语义:<code>^</code>代指开始， <code>$</code>表示结束，是边界的限定， 010或021 为了简洁这里用<code>()</code> 学名<code>原子组</code>的东西括起来，<code>-</code>和<code>d</code>在正则有特殊意义故需要用<code>\</code>转义，{7-8}属于<code>区间匹配</code> 代表数字7到8位`</em></strong></p>
+<p>有人说🙋‍♀️ ：那如果我们匹配很多数字的时候不是很麻烦，不是要<code>(1|2|3|4|5|6|7|8|9|0)</code>，</p>
+<p>这里就要提到正则的一个概念叫 <code>原子表</code> <code>[]</code> 代表一个可选范围</p>
+<p>[1234567890] 相当于 (1|2|3|4|5|6|7|8|9|0)</p>
+<p>继续简化 <code>-</code> 中线符 指定范围区间<br>[0-9] 就相当于[0123456789]<br>同样的区别匹配还有<code>[a-z][A-Z]</code>,要注意的是这里顺序不像<code>模式参数/gi</code>,它不可颠倒成<code>[z-a][9-0]</code></p>
+<p>区分：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'xiaojiejie'</span>.match(<span class="regexp">/ie/g</span>);<span class="comment">//=&gt;["ie", "ie"]全量匹配ji为整体</span></span><br><span class="line"><span class="string">'xiaojiejie'</span>.match(<span class="regexp">/[ie]/g</span>);<span class="comment">//=&gt;["i", "i", "e", "i", "e"]放在原子表里时,相当于j或i</span></span><br></pre></td></tr></table></figure></p>
+<p>即然提到<code>原子组</code>也顺带讲下<code>原子组</code><br>🌰如：我们现在匹配一日期 中间可以是”-“中线，也可以是”/“，前提条件是前后一至，若前一个用中线，后面必须也是中间。不可以是<code>2021-07/16</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="string">"2021-07-16"</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^\d&#123;4&#125;([-\/])\d&#123;2&#125;\1\d&#123;2&#125;$/</span></span><br><span class="line"><span class="built_in">console</span>.log(date.match(reg));<span class="comment">//=&gt;&#123;true&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>土味语义: 关建节点在<code>([-\/])</code>原子组 代表包含  了”-“中线<code>或</code>”/“两种形式，由于其中/是特殊字面量，需用’\’转义,\1代表这里要求与第一个原子组的规则结果相同</em></strong></p>
+<p>🌰现在我们来实现一个需求：</p>
+<p><strong>将下面代码中的h1-h6 内容全部替换成空字符 </strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'&lt;div&gt;&lt;h1&gt;linjie.fe.com xiaojiejie&lt;/h1&gt;&lt;h2&gt;xiaojiejie2&lt;/h2&gt;&lt;h3&gt;xiaojiejie3&lt;/h3&gt;&lt;H4&gt;&lt;/H4&gt;&lt;h6&gt;xiaojiejie666&lt;/h6&gt;&lt;/div&gt;'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/&lt;(h[1-6])&gt;[\s\S]*&lt;\/\1&gt;/gi</span>s;</span><br><span class="line"></span><br><span class="line">str.replace(reg,<span class="string">''</span>)<span class="comment">//=&gt;&lt;div&gt;&lt;/div&gt;;</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>土味语义: 以 <code>&lt;</code>开始 <code>(h[1-6])</code> 原子组中代只h1-h6 `[\s\S]</em><code>表示空白加非空白所有字符 零个至多个字符</code>&lt;\/\1&gt;<code>代表</code>-<code></code>/\1` 代表与第一个原子组规则相同 :*</strong></p>
+<h3 id="🌰4：特殊字面量的转义"><a href="#🌰4：特殊字面量的转义" class="headerlink" title="🌰4：特殊字面量的转义"></a>🌰4：特殊字面量的转义</h3><p>🌰4： 这里假设用正则匹配一个url地址</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">'https://linjieFE.github.io'</span>;</span><br><span class="line"></span><br><span class="line">/^(https:\/\/)?\w+\.\w+\.\w+$/.test(url)</span><br></pre></td></tr></table></figure>
+<p><strong><em>土味语义:<code>^ $</code>开始结束边界的限定， <code>?</code>代码0或1次术语上又属于一种称为<code>禁止贪婪</code>的语法，<code>禁止贪婪</code>有趋向于最少数的性质，后面我会再次讲到。也可理解为<code>没有</code>或<code>有的时候只能有一个</code>(https://) <code>\w</code>代表 字母大小写数字下划线 相当于 <code>[A-Za-z0-9_]</code>  <code>+</code> 学名也叫 <code>贪婪匹配</code>代表一个或多个字母大小写数字下划线 </em></strong></p>
+<p><em>注意</em><br>上面的字面量内容如果放在<code>正则表达式对象</code>里 情况则不同<br>字面量<code>/^(https:\/\/)?\w+\.\w+\.\w+$/</code>，单个反斜杠会自行转义</p>
+<p>但如果在 <code>new RegExp(&quot;(https:\/\/)?\w+\.\w+\.\w+,&#39;g&#39;)</code>中，于由第一个参数本身为数符串，正常使用则要改为<code>new RegExp(&quot;(https:\\/\\/)?\\w+\\.\\w+\\.\\w+&quot;,&#39;g&#39;)</code></p>
+<h3 id="🌰5：-字符边界的约束"><a href="#🌰5：-字符边界的约束" class="headerlink" title="🌰5： 字符边界的约束 ^$[]{}"></a>🌰5： 字符边界的约束 <code>^$[]{}</code></h3><p>这个前面已代过了 直接到🌰6</p>
+<h3 id="🌰6：-数字空白元字符-s匹配空白包括-相当于-n-f-r-t-v"><a href="#🌰6：-数字空白元字符-s匹配空白包括-相当于-n-f-r-t-v" class="headerlink" title="🌰6： 数字空白元字符 \s匹配空白包括 相当于 [\n\f\r\t\v]"></a>🌰6： 数字空白元字符 <code>\s</code>匹配空白包括 相当于 <code>[\n\f\r\t\v]</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">'     小姐姐:021-1234556,  linjie:010-1234556 '</span>;</span><br><span class="line"></span><br><span class="line">url.match(<span class="regexp">/[-\d:,]+/g</span>);<span class="comment">//=&gt; :021-1234556,:010-1234556 全局匹配出一个或多个 中线、数字、冒号、逗号</span></span><br><span class="line">url.match(<span class="regexp">/[^-\d:,]+/g</span>); <span class="comment">// =&gt;小姐姐linjie</span></span><br></pre></td></tr></table></figure>
+<p><code>^</code> 在 [] <code>原子表</code>里面 代表取返<code>[^]</code>，术语称其为<code>排除匹配</code>, 这里要特别注意跟 <code>区间符</code>中的’开始’<code>^</code>区分开.</p>
+<p><strong><em><code>排除匹配</code>土味语义: 全局匹配出一个或多个 <code>除</code> 中线、数字、冒号、逗号 的字符</em></strong></p>
+<ul>
+<li>另需注意<ul>
+<li>当原子组和原子表中使用特殊符号时没有换算关系，仅代表其中的字符本义，（所以转不转义也无妨）举例：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'(xiaojiejie).+'</span>.match(<span class="regexp">/[()]/g</span>);<span class="comment">//=&gt;["(", ")"] 这里 “原子表" 里包括了个“ 原子组” 实际上，原子表代表的只有字符串括号</span></span><br><span class="line"></span><br><span class="line"><span class="string">'(xiaojiejie).+'</span>.match(<span class="regexp">/[.+]/g</span>);<span class="comment">//=&gt;[".", "+"]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="🌰7：在元字符里除了-还有另一种特殊取反的方式"><a href="#🌰7：在元字符里除了-还有另一种特殊取反的方式" class="headerlink" title="🌰7：在元字符里除了^,还有另一种特殊取反的方式"></a>🌰7：在元字符里除了<code>^</code>,还有另一种特殊取反的方式</h3><p>P如：<br>\d 代表数字 \D 代表 除数字<br>\w 代表数字字母下划线 \W 代表 除代表数字字母下划线<br>相同的还有 \s \S 等等…<br><code>\s</code>代三空格、换行、等同与[\n\r]</p>
+<p>如：我们匹配一个电话号码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'010 - 1234567'</span>.match(<span class="regexp">/^\d+\s?\-\s?\d&#123;7,8&#125;$/</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>土味语义: <code>\d+</code> 贪婪匹配一个或多个数字 <code>\s?`</code>有一个<code>或</code>没有<code>空字符 ,</code>-<code>中线 最后</code>\d{7-8}<code>精准匹配7-8位数字</code>$`结束</em></strong></p>
+<p> <code>.</code> 贪婪的点 代表除 <code>换行符</code>以外所有的字符</p>
+<h3 id="🌰7-更加贪婪的全字符"><a href="#🌰7-更加贪婪的全字符" class="headerlink" title="🌰7 更加贪婪的全字符"></a>🌰7 更加贪婪的全字符</h3><p>我们知道 哪怕最贪婪的<code>.</code>也排除了一个换行符</p>
+<p>如：我们想匹配一段代码标签内的所有内容<br>可以用双向取反的方式 例如：<code>[\s\S] [\w\W]</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">`&lt;span&gt;</span></span><br><span class="line"><span class="string">    &lt;b&gt;xiaojiejie1&lt;/b&gt;</span></span><br><span class="line"><span class="string">    &lt;em&gt;xiaojiejie2&lt;/em&gt;</span></span><br><span class="line"><span class="string">&lt;/span&gt;`</span>;</span><br><span class="line"></span><br><span class="line">str.match(<span class="regexp">/^&lt;span&gt;[\d\D]+&lt;\/span&gt;$/</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="🌰8-正则的修正符i-g-‘s’"><a href="#🌰8-正则的修正符i-g-‘s’" class="headerlink" title="🌰8 正则的修正符i g ‘s’"></a>🌰8 正则的修正符<code>i</code> <code>g</code> ‘s’</h3><p>修正符一般用在正则表达示的结尾<br>如:我们匹配xiaoJiejie中的<code>j</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'xiaoJiejie'</span>.match(<span class="regexp">/j/gi</span>);<span class="comment">//=&gt;Jj</span></span><br></pre></td></tr></table></figure></p>
+<p><strong><em>土味语义: <code>/gi</code> 这里结尾中的<code>i</code>带代不分大小写，<code>g</code>代表全局 否则这里只会匹配一个就会跳出，这里<code>/gi</code> 同样可以写成 <code>/ig</code></em></strong><br><strong><em> <code>/s</code> 是忽略换行符 当文档出来换行符时，将其看作一行 </em></strong></p>
+<h3 id="🌰9-多行匹配"><a href="#🌰9-多行匹配" class="headerlink" title="🌰9 多行匹配"></a>🌰9 多行匹配</h3><p>业务要求:将str中包含在<code>#</code>号中的数据过滤为<br><code>[{name:&#39;成都小姐姐&#39;,age:&#39;18&#39;}]</code>数组对象格式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// step1</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">`    #1 上海小姐姐,18  #</span></span><br><span class="line"><span class="string">#2 成都小姐姐,19  #</span></span><br><span class="line"><span class="string">#3 北京小姐姐,20  # xiaojiejie</span></span><br><span class="line"><span class="string">#4 杭州小姐姐,21  #</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> step1 = str.match(<span class="regexp">/^\s*#\d+\s+.+\s+#$/gm</span>s);<span class="comment">//=&gt; ["#1 上海小姐姐,18  #", "#2 成都小姐姐,19  #", "#4 杭州小姐姐,21  #"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//step2 替换掉 #号和井号后的数字</span></span><br><span class="line"></span><br><span class="line">step2 = step1.map(<span class="function"><span class="params">v</span> =&gt;</span>&#123;</span><br><span class="line">    v=v.replace(<span class="regexp">/^\s*#\d+\s*/</span>,<span class="string">""</span>).replace(<span class="regexp">/\s#$/</span>,<span class="string">""</span>);<span class="comment">//=&gt;上海小姐姐,18  成都小姐姐,19  杭州小姐姐,21 </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//step3 用逗号拆分 解构给'name','age'这个变量</span></span><br><span class="line">    <span class="built_in">console</span>.log(v.split(<span class="string">','</span>)) <span class="comment">//=&gt; ['上海小姐姐','18']  ['成都小姐姐','19']  ['杭州小姐姐','21' ]</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//解构</span></span><br><span class="line">    <span class="keyword">const</span> [name, age] = v.split(<span class="string">','</span>);</span><br><span class="line">    <span class="keyword">return</span> &#123;name, age&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong><em>土味语义step1: <code>/gm</code> 这里结尾中的<code>m</code>代表每一行分别处理，`\s</em><code>开始空白符</code>有<code>或</code>没有<code>都可，这里有有泛指 1 个到多个，</code>#<code>号</code>\d+<code>一个或多个数字，</code>\s+<code>一个或多个空白符</code>.+<code>除换行符所有字符</code>\s+<code>一个或多个空白符</code>#`号结束*</strong></p>
+<p><strong><em>土味语义step2: 先把开头部分替换，空白符 1 个到多个，<code>#</code>号 <code>\d+</code>一个或多个数字，`\s</em>`零个或多个空白符 替换为空字符串；再将结尾部分空折符到#号结属部分替换为空字符串*</strong><br> 后面的步骤不用多讲了，就是简单的解构 return对象</p>
+<h3 id="🌰10-字符属性-汉字-和-宽字节"><a href="#🌰10-字符属性-汉字-和-宽字节" class="headerlink" title="🌰10 字符属性 汉字 和 宽字节"></a>🌰10 字符属性 汉字 和 宽字节</h3><p>在正则里字符串有自己的属性值prototype，比如<code>{L}</code>代表着字母属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'xjj1'</span>.match(<span class="regexp">/\p&#123;L&#125;/gu</span>)<span class="comment">//=&gt;["x", "j", "j"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配符号</span></span><br><span class="line"></span><br><span class="line"><span class="string">'xjj1.'</span>.match(<span class="regexp">/\p&#123;P&#125;/gu</span>)<span class="comment">//=&gt;['.']</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配汉语</span></span><br><span class="line"></span><br><span class="line"><span class="string">'小姐姐xjj1.'</span>.match(<span class="regexp">/\p&#123;sc=Han&#125;/gu</span>)<span class="comment">//=&gt;["小", "姐", "姐"]</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>土味语义: <code>\p</code> 代码匹配属性是否为字母<code>{L}</code> ,<code>/gu</code> 全局 </em>这里注意<em>匹配属性必段要带<code>/u</code> ，带特别是用来试别<code>宽字节</code>时, 例如匹配一些罗码字符时</em></strong></p>
+<h3 id="🌰10-lastindex"><a href="#🌰10-lastindex" class="headerlink" title="🌰10 lastindex"></a>🌰10 lastindex</h3><h3 id="🌰11-有效率的-y模式"><a href="#🌰11-有效率的-y模式" class="headerlink" title="🌰11 有效率的/y模式"></a>🌰11 有效率的/y模式</h3><h3 id="🌰12-amp-39-和-amp"><a href="#🌰12-amp-39-和-amp" class="headerlink" title="🌰12 &amp;&#39;和  $&amp;"></a>🌰12 <code>&amp;&#39;</code>和  <code>$&amp;</code></h3><p>$&amp; 相于于字符串 自身</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> str=<span class="string">'xiaojiejie'</span>;</span><br><span class="line">str.replace(<span class="regexp">/jiejie/g</span>,<span class="string">"$&amp;"</span>);<span class="comment">//=&gt;"xiaojiejie"</span></span><br></pre></td></tr></table></figure>
+<h3 id="🌰13-断言匹配"><a href="#🌰13-断言匹配" class="headerlink" title="🌰13 断言匹配"></a>🌰13 断言匹配</h3><p> 敲码不易，请多多赞赏！</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/知识点滴//" class="article-tag-list-link color5">知识点滴</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/01/Javascript-严格模式/" class="archive-article-date">
-  	<time datetime="2016-02-01T03:08:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/01/Javascript-严格模式/">Javascript 严格模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
         		</li>
@@ -243,7 +271,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -256,17 +284,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/07/16/关于正则/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/10/20/react-环境搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react 环境搭建</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -289,8 +404,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
