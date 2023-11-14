@@ -146,6 +146,154 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-土味正则系列之二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/11/14/%E5%9C%9F%E5%91%B3%E6%AD%A3%E5%88%99%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BA%8C/">土味正则系列之二</a>
+    </h1>
+  
+
+        
+        <a href="/2023/11/14/%E5%9C%9F%E5%91%B3%E6%AD%A3%E5%88%99%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BA%8C/" class="archive-article-date">
+  	<time datetime="2023-11-14T05:16:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>距离上一篇《土味正则》已经过去两年半，由于近期工作正好又用到了正则，去翻笔记才发现上一篇内容正好停更在了我正需要的查阅的内容就没了下续。<br>什么叫书到用时方恨少？！很多时候，我不是败给了难，而是败给了懒。对，懒散的懒，天秤与生具来的那种。小时候的夙愿就是长大最好自己什么都不用做，动动手指就能把钱赚了。so far码农让我“美梦成真”了……痛定思痛、开始亡羊补牢吧</p>
+<h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p><code>给一个软件包的package name 定义一个pattern</code></p>
+<ul>
+<li><p>功能细节如下：</p>
+<ol>
+<li><p>只能输入固定关键字<code>&#123;&#123;BSN&#125;&#125;</code>、<code>FSP</code>、<code>&#123;&#123;POS&#125;&#125;</code>、<code>&#123;&#123;VERSION&#125;&#125;</code>、<code>&#123;&#123;BETA&#125;&#125;</code>,以下划线”<code>_</code>“连接,</p>
+</li>
+<li><p>支持<code>1-5</code>个关键字，前后顺序不敏感。</p>
+</li>
+<li><p>开头和结尾不能包含除<code>&#123;&#123;BSN&#125;&#125;</code>、<code>FSP</code>、<code>&#123;&#123;POS&#125;&#125;</code>、<code>&#123;&#123;VERSION&#125;&#125;</code>、<code>&#123;&#123;BETA&#125;&#125;</code>以外的字符</p>
+</li>
+<li><p>keyword，大小写敏感，每种关键字<code>只能使用一次，不得重复使用</code>.</p>
+</li>
+</ol>
+<ul>
+<li>例如:<code>&#123;&#123;BSN&#125;&#125;_FSP_&#123;&#123;POS&#125;&#125;_&#123;&#123;VERSION&#125;&#125;_&#123;&#123;BETA&#125;&#125;</code> 或<code>&#123;&#123;BETA&#125;&#125;-FSP</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>  前3条实现都很好实现，也是上一篇正则中讲过的。<br>  细节4<code>每种关键字只能使用一次，不得重复使用</code><br>  这里就要用到<code>负向前瞻断言</code>。ok！下面开始上我们的主菜！</p>
+<h2 id="负向前瞻断言"><a href="#负向前瞻断言" class="headerlink" title="负向前瞻断言"></a>负向前瞻断言</h2><p>  什么是<code>负向前瞻断言</code>?</p>
+<ul>
+<li><code>负向前瞻断言</code>是一种正则表达式中的<code>非捕获分组</code>，用于在<code>当前位置之后查找</code>特定的模式，<code>但不捕获匹配结</code>果。它的语法是 (<code>?!</code>…)，其中 … 是一个正则表达式模式。</li>
+<li><code>负向前瞻断言匹配的条件</code>是，在当前位置之后的文本中，不能匹配给定的模式。</li>
+<li>就好比，每人只能只能定向分配一个小姐姐做老婆，小姐姐没出现之前整片森林都是你的。一旦正主出现后就没机会了，余生必须老老实实在自己那颗歪脖子树上好好吊着</li>
+</ul>
+<h4 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h4><p>  假设我们要匹配不包含<code>xiaojiejie</code>的字符串。我们可以使用负向前瞻断言来确保当前位置之后的文本中不包含数字。正则表达式如下：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">^(?!.*xiaojiejie)[\d\w]+$</span><br><span class="line"></span><br><span class="line">^        # 开始锚点</span><br><span class="line">(?!.*xiaojiejie) # 负向前瞻断言，确保当前位置之后的文本中不包含小姐姐</span><br><span class="line">[\d\w]+ # 匹配一个或多个字母数字</span><br><span class="line">$        # 结束锚点</span><br><span class="line"></span><br><span class="line">/^(?!.*xiaojiejie)[\d\w]+$/.test(&#x27;xiaojiejie111abc&#x27;) =&gt; false</span><br><span class="line"></span><br><span class="line">/^(?!.*xiaojiejie)[\d\w]+$/.test(&#x27;abcXYZ111&#x27;) =&gt; true</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+
+<p>在这个例子中， <code>(?!.*xiaojiejie)</code> 用于确保在当前位置之后的文本中没有任何<code>xiaojiejie</code>。否则整个正则表达式将不匹配。<code>.*</code>表示一个或多个，当然，不写也可以，例如写成<code>(?!.*xiaojiejie)</code>结果也是一样的</p>
+<p>例如：</p>
+<p>对于输入 “abcXYZ111”，正则表达式匹配。<br>对于输入 “xiaojiejie111abc”，正则表达式不匹配，因为存在小姐姐。</p>
+<h4 id="现在我们理解了什么是负向前瞻断言的概要，接着我们来一起解决到上面的综合题"><a href="#现在我们理解了什么是负向前瞻断言的概要，接着我们来一起解决到上面的综合题" class="headerlink" title="现在我们理解了什么是负向前瞻断言的概要，接着我们来一起解决到上面的综合题"></a>现在我们理解了什么是<code>负向前瞻断言</code>的概要，接着我们来一起解决到上面的<code>综合题</code></h4><ul>
+<li><ol>
+<li>首先正则的格式 <code>/^...$/</code>: 这是正则表达式的开始和结束锚定符，确保匹配从字符串的开头到结尾。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li><code>(?!.*(?:&#123;&#123;BSN&#125;&#125;.*&#123;&#123;BSN&#125;&#125;|FSP.*FSP|&#123;&#123;POS&#125;&#125;.*&#123;&#123;POS&#125;&#125;|&#123;&#123;VERSION&#125;&#125;.*&#123;&#123;VERSION&#125;&#125;|&#123;&#123;BETA&#125;&#125;.*&#123;&#123;BETA&#125;&#125;))</code>: 这是一个负向前瞻断言，确保字符串中没有重复的关键字。具体来说，它防止字符串包含两次或更多相同的关键字。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li><code>(&#123;&#123;BSN&#125;&#125;|FSP|&#123;&#123;POS&#125;&#125;|&#123;&#123;VERSION&#125;&#125;|&#123;&#123;BETA&#125;&#125;)</code>: 这是一个捕获组，用于匹配单个关键字。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li><code>(?:_(?!.*(?:&#123;&#123;BSN&#125;&#125;.*&#123;&#123;BSN&#125;&#125;|FSP.*FSP|&#123;&#123;POS&#125;&#125;.*&#123;&#123;POS&#125;&#125;|&#123;&#123;VERSION&#125;&#125;.*&#123;&#123;VERSION&#125;&#125;|&#123;&#123;BETA&#125;&#125;.*&#123;&#123;BETA&#125;&#125;)))</code>: 这是一个非捕获型分组，用于匹配下划线 _ 以及确保下划线后面不跟随任何重复的关键字。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li><code>(&#123;&#123;BSN&#125;&#125;|FSP|&#123;&#123;POS&#125;&#125;|&#123;&#123;VERSION&#125;&#125;|&#123;&#123;BETA&#125;&#125;)</code>: 这是第二个捕获组，用于匹配第二个关键字。</li>
+</ol>
+</li>
+<li><ol start="6">
+<li><code>&#123;0,4&#125;</code>: 这是一个量词，表示前述的捕获组可以重复出现 0 到 4 次，即最多匹配五个关键字。</li>
+</ol>
+</li>
+</ul>
+<p>综合起来，这个正则表达式可以匹配由 、FSP、、、 这些关键字组成的由下划线 _ 连接的字符串，最多包含五个关键字，并且不允许同一个关键字在字符串中重复出现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/^(?!.*(?:&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;|<span class="variable constant_">FSP</span>.*<span class="variable constant_">FSP</span>|&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;))(&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;|<span class="variable constant_">FSP</span>|&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;)(?:<span class="title function_">_</span>(?!.*(?:&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;|<span class="variable constant_">FSP</span>.*<span class="variable constant_">FSP</span>|&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;))(&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;|<span class="variable constant_">FSP</span>|&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;))&#123;<span class="number">0</span>,<span class="number">4</span>&#125;$/.<span class="title function_">test</span>(<span class="string">&#x27;&#123;&#123;BSN&#125;&#125;_FSP_&#123;&#123;POS&#125;&#125;_&#123;&#123;VERSION&#125;&#125;_&#123;&#123;BETA&#125;&#125;&#x27;</span>) ==&gt;<span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>ok! 欠的作业终于补完！老衲得午休一会了。Good afternoon！！</p>
+<p> 敲码不易，请多多赞赏！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/11/14/%E5%9C%9F%E5%91%B3%E6%AD%A3%E5%88%99%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BA%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MQTT" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1155,86 +1303,6 @@
 
 
   
-    <article id="post-关于面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/25/%E5%85%B3%E4%BA%8E%E9%9D%A2%E8%AF%95/">关于面试</a>
-    </h1>
-  
-
-        
-        <a href="/2016/01/25/%E5%85%B3%E4%BA%8E%E9%9D%A2%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2016-01-25T15:32:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天天小组会的时候组长wh模拟了一次面试。面试对象是猴哥，但问题几乎虐翻全场。<br>这两年也经过的一些面试，总结感受。我觉得面试有三个要点，一看真实实力，二看运气，三看面试你的人。对whao这种技术狂人来说，面试是一个互劈的过程。当然我是面试官可能也不太会以自己软肋接别人硬拳头。所以通过他进入平安的人都是js逼，绝逼不可能有css逼。我看得出他十分享受别人被他问的一愣一愣又一脸崇拜的样子。他问猴哥的问题我印象里在去年他做过一次分享会。既是能拿出手的一定是他强项。当然，这不代表他其他方面就弱。所以记住一点，面试官问的问题一般都是有备而来，胸有成竹的。所以不会就谦虚点坦言自己不会，千万别不会还一本正经的胡说八道。技不如人不丢人，通过后天学习可以弥补。但不会做人就是品质问题了。会做事是(IQ)而处理事的态度是(EQ)。我觉得实际工作中情商比智商更重要。</p>
-<p>当然如果你足够有聪慧又健谈，也可以争得主动权引导着面试官跟着你的思路走。多聊你自己擅长的东西，但前提得是你这方面真的牛逼，否则不要轻易撕逼，否则撕完你就成傻逼。前端是一个知识很广泛的圈。只要不是到了专家的变态级别应该不会有人真的各个方面都无懈可击。<br>一般来说去面试跟你聊生活的是行政人事，聊技术的是同事或Leader， 聊情怀和理想的是老板。其他俩个随便扯扯淡即可，聊技术的，决定了你今后跟什么样的人和团队共事。 从面试官的身上可以直接反映这个前端团队的技术层次和应征单位前端职位的受重视程度。这是一个互相试水的过程。所以一定要诚实对待，假如你跟面你的人话不投机就别妄想了。就算你趋炎附势混进去，终有一天也会因各种水土不服滚出来。我常说面试跟相亲一样，虽然我没相过亲，但没吃过猪肉也看过猪跑。面试二字，面首先是眼缘，第一印象，话语是否投机，沟通是否顺畅，其次是试。这试具体前面已经说过，不再赘述。有机会还是多去知名的大公司去。我不是对小公司有偏见，也不否认小公司也有强人，而是概率问题，就像我相信“鸡窝里也能飞出金凤凰”，但毕竟少数个例，总能看见鸡窝里飞出凤凰的概率还是极低的。<br>附几个较新的前端面试题链接。平时可以自己做一下。心里有个底，不足则加勉。<br>来源阿里的寒冬witer老师(github:@wintercn)<br><a target="_blank" rel="noopener" href="https://github.com/markyun/My-blog/blob/master/Front-end-Developer-Questions/Questions-and-Answers/README.md?from=timeline&isappinstalled=0">前端开发面试题</a><br>来源凯歌博客<a target="_blank" rel="noopener" href="https://github.com/jsonxu/F2E-Blog/blob/master/2015%E9%9D%A2%E8%AF%95%E9%A2%98%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88.md">前端开发面试题</a><br><a target="_blank" rel="noopener" href="https://github.com/hawx1993/Front-end-Interview-questions">前端开发面试问题及答案整理1</a><br><a target="_blank" rel="noopener" href="https://github.com/AutumnsWind/Front-end-questions-to-the-interview-stage">前端开发面试问题及答案整理2</a><br><a target="_blank" rel="noopener" href="https://github.com/paddingme/Front-end-Web-Development-Interview-Question">前端开发面试问题及答案整理3</a><br><a target="_blank" rel="noopener" href="https://github.com/qiu-deqing/FE-interview">前端开发面试问题及答案整理4</a><br>说完面试，再聊聊最近学习上的一些感悟。进入平安金科也有1年半。各个小组也都共事过一圈。从一账通到官网到旗舰店，平安金融卫士，到现在的移动端。每个小组和组长都有自己的特点，优势和不足。这一年收获很大。美国有句谚语“学会游泳的最好办法 就是把鸭子扔进河里”想学到东西方法很多，最有用的途径绝不是照本宣科，而是投在实际项目中不断的打怪升级。不要畏惧辛苦，手里有项目做，并且是有价值的项目是一件极好的事。<br>人无论水平高还是低，在自学的过程中都会有自己的瓶颈和盲点。有时我们或许很用心认真的按自己的逻辑完成一个demo，你觉得你已经倾其所能把它做到极致了。OK你觉得很完美。其实远远不够，多看别人的代码，会从中获取新的能量。我有时常看zf的代码会发现他做了跟我同样的东西，却用了不同的办法。然后思考他为什么这么做？好处是什么？思考之后，去其糟粕，取其精华，再回头把自己原来的代码进一步优化。可能忽然一下如醍醐灌顶。 </p>
-<p>古话说“他山之石，可以功玉” 可能你开始只会把别人的代码拷过来，后来渐渐会改一点。一点点从借用到巧用，但只要足够坚持，天道酬勤总有一天你会写出自己的东西。<br>我很喜欢图灵的书，觉的几乎每本都是精华，但每本图灵的书封总有那句话“站在巨人的肩膀上”!<br> 我觉得不管用什么方式，只要不涉及版权和盈利目地，在合理范围内以正常途径的抄写，借鉴，引用……只要可以从中吸收营养，推进自己进步都不失为一种好的学习途径。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前题面试题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/01/25/%E5%85%B3%E4%BA%8E%E9%9D%A2%E8%AF%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Mac-OS-x-使用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1457,10 +1525,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前题面试题</a>
               </li>
              
               <li class="article-tag-list-item">
