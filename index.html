@@ -211,6 +211,150 @@
             
 
   
+    <article id="post-Observer-Pattern-观察者模式-和Publisher-Subscriber-Pattern-发布者-订阅者模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/11/14/Observer-Pattern-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E5%92%8CPublisher-Subscriber-Pattern-%E5%8F%91%E5%B8%83%E8%80%85-%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/" target="_blank">Observer Pattern(观察者模式)和Publisher-Subscriber Pattern(发布者/订阅者模式)</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/11/14/Observer-Pattern-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E5%92%8CPublisher-Subscriber-Pattern-%E5%8F%91%E5%B8%83%E8%80%85-%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2023-11-14T14:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>在许多地方都能见到基于发布&#x2F;订阅模式和观察者模式设计的框架</p>
+<ol>
+<li>函数或插件在浏览器中使用addEventListener(type,fn)对dom元素进行事件委托。</li>
+<li>事件监听用户的异步操作Android中也有一个事件发布&#x2F;订阅的轻量级框架：EventBus，原理与web相似Socket.io的许多方法也是基于此类模式，监听与触发事件，批量广播等。</li>
+<li>在Node中同样也有一个events事件触发器解决异步操作的同步响应</li>
+</ol>
+<h3 id="观察者模式："><a href="#观察者模式：" class="headerlink" title="观察者模式："></a>观察者模式：</h3><p><code>Subject(主题，被观察者)</code>：当状态发送变化时，通知队列中关联对象</p>
+<p><code>Observer(观察者)</code>：当Subject发送消息时，通过回调获得信息</p>
+<p>Observer(观察者)将事件（记做fn回调）丢给Subject(被观察者)，开始监视事件，当Subject(被观察者)的（异步）任务完成后，同步触发事件fn被激活，回调将会触发（Fire Event）把消息传输给Observer(观察者)后，完成一个完整的周期</p>
+<hr>
+<h3 id="Publisher-Subscriber-Pattern-发布者-x2F-订阅者模式-："><a href="#Publisher-Subscriber-Pattern-发布者-x2F-订阅者模式-：" class="headerlink" title="Publisher-Subscriber Pattern(发布者&#x2F;订阅者模式)："></a>Publisher-Subscriber Pattern(发布者&#x2F;订阅者模式)：</h3><p><code>Subscriber(订阅者)</code>：将事件注册到事件调度中心（Event Channel或者可以看做EventBus(事件总线)）</p>
+<p><code>Publisher(发布者)</code>：触发调度中心的事件</p>
+<p>Event Channel(调度中心)，与Vue和Android中的EventBus(事件总线)相似：</p>
+<p>得到Publisher(发布者)的消息后，统一处理Subscriber(订阅者)注册的事件</p>
+<p>Subscriber(订阅者)通过on将事件注册到Event Channel(调度中心)，并与Event Channel通过回调进行数据传递，当Subscriber(订阅者)触发Event Channel(调度中心)的事件并将数据传递至其中时，调度中心会激活之前与Subscriber(订阅者)建立的联系，通过emit发送数据，订阅者收到数据后完成一个周期</p>
+<hr>
+<p>发布者&#x2F;订阅者模式实际上是基于观察者模式上优化实现的</p>
+<h4 id="二者的区别："><a href="#二者的区别：" class="headerlink" title="二者的区别："></a>二者的区别：</h4><p>发布订阅模式：订阅者（Subscriber）把自己想订阅的事件注册（Subscribe）到调度中心（Event Channel），当发布者（Publisher）发布该事件（Publish Event）到调度中心，也就是该事件触发时，由调度中心统一调度（Fire Event）订阅者注册到调度中心的处理代码。</p>
+<p>观察者模式：定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新</p>
+<p>优点：观察者和被观察者是抽象耦合的，其二者建立了一套触发机制，松耦合<br>缺点：二者之间循环依赖，如果关系复杂，如观察者数量过多，还是会造成性能问题，解决方式是避免同步执行造成线程阻塞</p>
+<p>发布者&#x2F;订阅者模式：与观察者模式类似，但是核心区别是发布者与订阅者互相无耦合，并不知道通知与被通知的对方的具体身份，而是将注册的函数放在统一的调度中心进行管理<br>优点：发布者&#x2F;订阅者完全解耦，可扩展性高，常应用在分布式，紧耦合服务中<br>缺点：发布者解耦订阅者，这点既是主要优点，亦是缺点，打个比方，在Socket中，倘若服务端发送消息给客户端，不会在意是否发送成功，此时需要客户端返回接收到了消息才能算是保证了代码的可靠性和可用性<br>相关源码：码云地址</p>
+<h4 id="简易版的消息中心"><a href="#简易版的消息中心" class="headerlink" title="简易版的消息中心"></a>简易版的消息中心</h4><p>起步<br>参考node中的 events事件触发器 我总结归类出了以下函数</p>
+<p>on :注册事件</p>
+<p>emit：触发事件</p>
+<p>un：事件销毁</p>
+<p>once：注册事件，执行后即销毁</p>
+<p>clear：重置事件列表（消息中心）</p>
+<p>has：判断事件是否被订阅</p>
+<p>handlerLength：返回某个事件的监听函数数量</p>
+<p>watch：与on一样，不同点是可以将结果返回至发布者</p>
+<p>invoke：与emit一样，配合watch使用，当watch中存在异步操作时接收其结果</p>
+<p>功能设计<br>了解了实现的功能，我们把类的接口实现一下，其中events是之前文章中的调度中心，使用一个对象来存取所有绑定的事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> declare interface <span class="title class_">Handlers</span> &#123;</span><br><span class="line">    [<span class="attr">key</span>: string]: <span class="title class_">Array</span>&lt;<span class="title class_">Function</span>&gt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> declare interface <span class="title class_">IMessageCenter</span> &#123;</span><br><span class="line">    <span class="attr">events</span>: <span class="title class_">Handlers</span></span><br><span class="line">    _instance?: <span class="title class_">IMessageCenter</span></span><br><span class="line">    <span class="attr">on</span>: <span class="function">(<span class="params">type: string, handler: <span class="built_in">Function</span></span>) =&gt;</span> <span class="variable language_">this</span></span><br><span class="line">    <span class="attr">emit</span>: <span class="function">(<span class="params">type: string, data?: any</span>) =&gt;</span> <span class="variable language_">this</span></span><br><span class="line">    <span class="attr">un</span>: <span class="function">(<span class="params">type: string, handler?: <span class="built_in">Function</span></span>) =&gt;</span> <span class="variable language_">this</span></span><br><span class="line">    <span class="attr">once</span>: <span class="function">(<span class="params">type: string, handler: <span class="built_in">Function</span></span>) =&gt;</span> <span class="variable language_">this</span></span><br><span class="line">    <span class="attr">clear</span>: <span class="function">() =&gt;</span> <span class="variable language_">this</span></span><br><span class="line">    <span class="attr">has</span>: <span class="function">(<span class="params">type: string</span>) =&gt;</span> boolean</span><br><span class="line">    <span class="attr">handlerLength</span>: <span class="function">(<span class="params">type: string</span>) =&gt;</span> number</span><br><span class="line">    <span class="attr">watch</span>: <span class="function">(<span class="params">type: string, handler: <span class="built_in">Function</span></span>) =&gt;</span> <span class="variable language_">this</span></span><br><span class="line">    <span class="attr">invoke</span>: <span class="function">(<span class="params">type: string, data?: any</span>) =&gt;</span> <span class="title class_">Promise</span>&lt;<span class="keyword">void</span>&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>工具函数实现<br>接口完成后，我们来写一些工具函数，这些函数不需要暴露在外面所以在类中，比如异常处理函数：用于解析参数是否异常；单例函数：返回当前类的实例的单例；批量执行函数：执行events中与事件名绑定的函数列表；批量销毁函数：批量销毁调度中心中某个函数集；此外，还有一个函数用于区别watch、invoke和on、emit的事件类型（type）的字符串混入。</p>
+<p>异常处理函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 检查参数是否符合标准</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> type 事件名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> handler 事件钩子</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">private <span class="title function_">checkHandler</span>(<span class="params">type: string, handler: <span class="built_in">Function</span></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (type?.<span class="property">length</span> === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;type.length can not be 0&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!handler || !type) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ReferenceError</span>(<span class="string">&#x27;type or handler is not defined&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> handler !== <span class="string">&#x27;function&#x27;</span> || <span class="keyword">typeof</span> type !== <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TypeError</span>(<span class="string">`<span class="subst">$&#123;handler&#125;</span> is not a function or <span class="subst">$&#123;type&#125;</span> is not a string`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>单例函数：</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回当前类的实例的单例</span></span><br><span class="line"><span class="keyword">static</span> <span class="title class_">Instance</span>(<span class="title class_">Fn</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title class_">Fn</span>.<span class="property">_instance</span>) &#123;</span><br><span class="line">        <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Fn</span>, <span class="string">&quot;_instance&quot;</span>, &#123;</span><br><span class="line">            <span class="attr">value</span>: <span class="keyword">new</span> <span class="title class_">Fn</span>()</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Fn</span>.<span class="property">_instance</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>批量执行函数：</p>
+<p> &#x2F;&#x2F; 批量执行调度中心中某个函数集<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">private <span class="title function_">runHandler</span>(<span class="params">type, data</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="variable language_">this</span>.<span class="property">events</span>[type].<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">events</span>[type][i] &amp;&amp; <span class="variable language_">this</span>.<span class="property">events</span>[type][i](data)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>批量销毁函数：</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 批量销毁调度中心中某个函数集</span></span><br><span class="line">private <span class="title function_">unHandler</span>(<span class="params">type, handler</span>) &#123;</span><br><span class="line">    !handler &amp;&amp; (<span class="variable language_">this</span>.<span class="property">events</span>[type] = [])</span><br><span class="line">    handler &amp;&amp; <span class="variable language_">this</span>.<span class="title function_">checkHandler</span>(type, handler)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="variable language_">this</span>.<span class="property">events</span>[type].<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">events</span>[type][i] &amp;&amp; <span class="variable language_">this</span>.<span class="property">events</span>[type][i] === handler) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">events</span>[type][i] = <span class="literal">null</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>字符串混入：<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private <span class="title function_">prefixStr</span>(<span class="params">str</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`@<span class="subst">$&#123;str&#125;</span>`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>消息中心类实现<br>工具函数实现完成后，我们就可以正式开始实现接口中定义的各种函数了，以下是函数的实现过程，其中this.events是事件调度中心，一个以事件type为key的对象</p>
+<p>has：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断事件是否被订阅</span></span><br><span class="line"><span class="title function_">has</span>(<span class="params">type: string</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> !!<span class="variable language_">this</span>.<span class="property">events</span>[type]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>on：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 注册事件至调度中心</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> type 事件类型，特指具体事件名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> handler 事件注册的回调</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title function_">on</span>(<span class="params">type, handler</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">checkHandler</span>(type, handler)</span><br><span class="line">    <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="title function_">has</span>(type)) &#123; <span class="comment">//若调度中心未找到该事件的队列，则新建某个事件列表（可以对某个类型的事件注册多个回调函数）</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">events</span>[type] = []</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">events</span>[type].<span class="title function_">push</span>(handler)</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>emit：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 触发调度中心的某个或者某些该事件类型下注册的函数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> type 事件类型，特指具体事件名</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> data 发布者传递的参数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title function_">emit</span>(<span class="params">type, data</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="title function_">has</span>(type)) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">runHandler</span>(type, data)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>un：<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//销毁监听</span></span><br><span class="line"><span class="title function_">un</span>(<span class="params">type, handler</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">unHandler</span>(type, handler)</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>once：</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只注册一次监听，执行即销毁</span></span><br><span class="line"><span class="title function_">once</span>(<span class="params">type, handler</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">checkHandler</span>(type, handler)</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">fn</span> = (<span class="params">...args</span>) =&gt; &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">un</span>(type, fn);</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">handler</span>(...args)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">on</span>(type, fn)</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>clear：<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重置调度中心</span></span><br><span class="line"><span class="title function_">clear</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">events</span> = &#123;&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>handlerLength：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一个事件被绑定了多少函数</span></span><br><span class="line"><span class="title function_">handlerLength</span>(<span class="params">type: string</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">events</span>[type]?.<span class="property">length</span> ?? <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>watch：<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听invoke的消息，若handler中进行了计算或者异步操作，会反馈给invoke</span></span><br><span class="line"><span class="title function_">watch</span>(<span class="params">type, handler</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">checkHandler</span>(type, handler)</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">fn</span> = (<span class="params">...args</span>) =&gt; &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">emit</span>(<span class="variable language_">this</span>.<span class="title function_">prefixStr</span>(type), <span class="title function_">handler</span>(...args));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">on</span>(type, fn);</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>invoke：<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 触发watch事件，并且接收watch处理结果</span></span><br><span class="line"><span class="title function_">invoke</span>(<span class="params">type, data</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>&lt;<span class="keyword">void</span>&gt;(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">once</span>(<span class="variable language_">this</span>.<span class="title function_">prefixStr</span>(type), resolve);</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">emit</span>(type, data);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>验证功能<br>实现完成后，我们试试效果</p>
+<p>on&#x3D;&gt;emit，和之前一样，on监听一个或多个事件，emit触发该事件名下所有事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">funcA</span>(<span class="params">args</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(args)  </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">funcB</span>(<span class="params">args</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(++args.<span class="property">count</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">messageCenter.<span class="title function_">on</span>(<span class="string">&quot;a&quot;</span>, funcA);</span><br><span class="line">messageCenter.<span class="title function_">on</span>(<span class="string">&quot;a&quot;</span>, funcB);</span><br><span class="line">messageCenter.<span class="title function_">emit</span>(<span class="string">&quot;a&quot;</span>, &#123; <span class="attr">count</span>: <span class="number">1</span> &#125;); <span class="comment">// &#123; count: 1 &#125;   2</span></span><br><span class="line">messageCenter.<span class="title function_">emit</span>(<span class="string">&quot;a&quot;</span>, &#123; <span class="attr">count</span>: <span class="number">2</span> &#125;); <span class="comment">// &#123; count: 2 &#125;   3</span></span><br></pre></td></tr></table></figure>
+<p>on&#x3D;&gt;emit&#x3D;&gt;un&#x3D;&gt;emit，on监听事件，un销毁事件且不再允许emit当前函数，若不传函数，则清除当前type（事件名）下所有函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">messageCenter.<span class="title function_">on</span>(<span class="string">&quot;a&quot;</span>, funcB);</span><br><span class="line">messageCenter.<span class="title function_">emit</span>(<span class="string">&quot;a&quot;</span>, &#123; <span class="attr">count</span>: <span class="number">1</span> &#125;); <span class="comment">// 2</span></span><br><span class="line">messageCenter.<span class="title function_">un</span>(<span class="string">&quot;a&quot;</span>, funcB);</span><br><span class="line">messageCenter.<span class="title function_">emit</span>(<span class="string">&quot;a&quot;</span>, &#123; <span class="attr">count</span>: <span class="number">2</span> &#125;);</span><br></pre></td></tr></table></figure>
+<p>once&#x3D;&gt;emit&#x3D;&gt;emit，once监听一个或多个事件，emit触发事件后立即销毁</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">messageCenter.<span class="title function_">once</span>(<span class="string">&quot;a&quot;</span>, funcB);</span><br><span class="line">messageCenter.<span class="title function_">emit</span>(<span class="string">&quot;a&quot;</span>, &#123; <span class="attr">count</span>: <span class="number">1</span> &#125;); <span class="comment">// 2</span></span><br><span class="line">messageCenter.<span class="title function_">emit</span>(<span class="string">&quot;a&quot;</span>, &#123; <span class="attr">count</span>: <span class="number">2</span> &#125;);</span><br></pre></td></tr></table></figure>
+<p>on&#x3D;&gt;clear&#x3D;&gt;has，on监听不同的事件，clear重置当前事件列表</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">messageCenter.<span class="title function_">on</span>(<span class="string">&quot;a&quot;</span>, funcB);</span><br><span class="line">messageCenter.<span class="title function_">on</span>(<span class="string">&quot;b&quot;</span>, funcB);</span><br><span class="line">messageCenter.<span class="title function_">on</span>(<span class="string">&quot;c&quot;</span>, funcB);</span><br><span class="line">messageCenter.<span class="title function_">clear</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">info</span>(</span><br><span class="line">  messageCenter.<span class="title function_">has</span>(<span class="string">&quot;a&quot;</span>) || messageCenter.<span class="title function_">has</span>(<span class="string">&quot;b&quot;</span>) || messageCenter.<span class="title function_">has</span>(<span class="string">&quot;c&quot;</span>)</span><br><span class="line">); <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">info</span>(messageCenter.<span class="property">events</span>); <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="function"><span class="params">on</span>=&gt;</span>handlerLength，on在同一type中注册多个事件，handlerLength返回事件数量</span><br><span class="line"></span><br><span class="line">messageCenter.<span class="title function_">on</span>(<span class="string">&quot;a&quot;</span>, funcB);</span><br><span class="line">messageCenter.<span class="title function_">on</span>(<span class="string">&quot;a&quot;</span>, funcA);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">info</span>(messageCenter.<span class="title function_">handlerLength</span>(<span class="string">&#x27;a&#x27;</span>)); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>watch&#x3D;&gt;invoke，watch注册事件，invoke触发事件并等待结果</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">funcC</span> = <span class="keyword">async</span> (<span class="params">args</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> <span class="title function_">syncFn</span>();</span><br><span class="line">  <span class="keyword">return</span> args.<span class="title function_">reduce</span>(<span class="function">(<span class="params">pre, next</span>) =&gt;</span> (pre += next));</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 异步函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">syncFn</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(res, <span class="number">1000</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;    </span><br><span class="line">messageCenter.<span class="title function_">watch</span>(<span class="string">&quot;c&quot;</span>, funcC);</span><br><span class="line">messageCenter.<span class="title function_">invoke</span>(<span class="string">&quot;c&quot;</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]).<span class="title function_">then</span>(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(result); <span class="comment">// 6</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>写在最后<br>以上就是文章的所有内容了，如果对源码有兴趣的同学可以进入下面链接或者用npm，pnpm下载</p>
+<p>Gitee：MessageCenter: 基于发布订阅模式实现的一个事件消息中心</p>
+<p>NPM：event-message-center - npm</p>
+<p>源码参考：message-center.js - npm</p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1116304">https://developer.aliyun.com/article/1116304</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/11/14/Observer-Pattern-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E5%92%8CPublisher-Subscriber-Pattern-%E5%8F%91%E5%B8%83%E8%80%85-%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-土味正则系列之二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1449,106 +1593,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2016/01/26/%E5%85%B3%E4%BA%8Ehaslayout/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mac-OS-x-使用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2016/01/20/Mac-OS-x-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank">Mac OS x 使用技巧</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2016/01/20/Mac-OS-x-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="archive-article-date">
-        <time datetime="2016-01-20T07:17:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>先附一张mac常用快捷键<br><img src="/img/mac.jpg"></p>
-<h1 id="常用高频的快捷键目录："><a href="#常用高频的快捷键目录：" class="headerlink" title="常用高频的快捷键目录："></a>常用高频的快捷键目录：</h1>
-    
-    <a class="article-more-a" href="/2016/01/20/Mac-OS-x-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mac技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术摘录//" class="article-tag-list-link color5">技术摘录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2016/01/20/Mac-OS-x-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">展开全文 >></a>
     </p>
     
 
