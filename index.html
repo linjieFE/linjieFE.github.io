@@ -240,7 +240,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>   距离上一篇《土味正则》已经过去两年半，由于近期工作正好又用到了正则，去翻笔记才发现上一篇内容正好停更在了我正需要的查阅的内容就没了下续。<br>什么叫书到用时方恨少？！很多时候，我不是败给了难，而是败给了懒。对，懒散的懒，天秤与生具来的那种。小时候的夙愿就是长大最好自己什么都不用做，动动手指就能把钱赚了。so far码农让我“美梦成真”了……痛定思痛、开始亡羊补牢吧</p>
+    <p>   距离上一篇《土味正则》已经过去两年半，由于近期工作正好又用到了正则，去翻笔记才发现上一篇内容正好停更在了我正需要的查阅的内容就没了下续。<br>什么叫书到用时方恨少？！很多时候，我不是败给了难，而是败给了懒。对，懒散的懒，天秤与生具来的那种。小时候的夙愿就是长大最好自己什么都不用做，动动我发财的小手指就能把钱赚了。so far 码农让我“美梦成真”了……痛定思痛、开始亡羊补牢吧</p>
 <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p><code>给一个软件包的package name 定义一个pattern</code></p>
 <p>  <b>功能细节如下</b>：</p>
 <ol>
@@ -261,13 +261,13 @@
 <ul>
 <li><code>负向前瞻断言</code>是一种正则表达式中的<code>非捕获分组</code>，用于在<code>当前位置之后查找</code>特定的模式，<code>但不捕获匹配结</code>果。它的语法是 (<code>?!</code>…)，其中 … 是一个正则表达式模式。</li>
 <li><code>负向前瞻断言匹配的条件</code>是，在当前位置之后的文本中，不能匹配给定的模式。</li>
-<li>就好比，每人只能只能定向分配一个小姐姐做老婆，小姐姐没出现之前整片森林都是你的。一旦正主出现后就没机会了，余生必须老老实实在自己那颗歪脖子树上好好吊着</li>
+<li>就好比说，每人只能只能定向分配一个小姐姐做老婆，小姐姐没出现之前整片森林都是你的。一旦正主出现后就没机会了，余生必须老老实实在自己那颗歪脖子树上好好吊着</li>
 </ul>
-<h4 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h4><p>  假设我们要匹配不包含<code>xiaojiejie</code>的字符串。我们可以使用负向前瞻断言来确保当前位置之后的文本中不包含数字。正则表达式如下：</p>
+<h4 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h4><p>  假设我们要匹配不包含<code>xiaojiejie</code>的字符串。我们可以使用负向前瞻断言来确保当前位置之后的文本中不包含其它<code>xiaojiejie</code>。正则表达式如下：</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">^(?!.*xiaojiejie)[\d\w]+$</span><br><span class="line"></span><br><span class="line">^        # 开始锚点</span><br><span class="line">(?!.*xiaojiejie) # 负向前瞻断言，确保当前位置之后的文本中不包含小姐姐</span><br><span class="line">[\d\w]+ # 匹配一个或多个字母数字</span><br><span class="line">$        # 结束锚点</span><br><span class="line"></span><br><span class="line">/^(?!.*xiaojiejie)[\d\w]+$/.<span class="title function_">test</span>(<span class="string">&#x27;xiaojiejie111abc&#x27;</span>) =&gt; <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">/^(?!.*xiaojiejie)[\d\w]+$/.<span class="title function_">test</span>(<span class="string">&#x27;abcXYZ111&#x27;</span>) =&gt; <span class="literal">true</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure>
 
 
-<p>在这个例子中， <code>(?!.*xiaojiejie)</code> 用于确保在当前位置之后的文本中没有任何<code>xiaojiejie</code>。否则整个正则表达式将不匹配。<code>.*</code>表示一个或多个，当然，不写也可以，例如写成<code>(?!.*xiaojiejie)</code>结果也是一样的</p>
+<p>在这个例子中， <code>(?!.*xiaojiejie)</code> 用于确保在当前位置之后的文本中没有任何<code>xiaojiejie</code>。否则整个正则表达式将不匹配。<code>.*</code>表示一个或多个，当然，不写也可以，例如写成<code>(?!xiaojiejie)</code>结果也是一样的</p>
 <p>例如：</p>
 <p>对于输入 “abcXYZ111”，正则表达式匹配。<br>对于输入 “xiaojiejie111abc”，正则表达式不匹配，因为存在小姐姐。</p>
 <h4 id="现在我们理解了什么是负向前瞻断言的概要，接着我们来一起解决到上面的综合题"><a href="#现在我们理解了什么是负向前瞻断言的概要，接着我们来一起解决到上面的综合题" class="headerlink" title="现在我们理解了什么是负向前瞻断言的概要，接着我们来一起解决到上面的综合题"></a>现在我们理解了什么是<code>负向前瞻断言</code>的概要，接着我们来一起解决到上面的<code>综合题</code></h4><ol>
@@ -287,8 +287,8 @@
 <p><b>综上所叙 完整的正则表达式写法如下：</b></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/^(?!.*(?:&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;|<span class="variable constant_">FSP</span>.*<span class="variable constant_">FSP</span>|&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;))(&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;|<span class="variable constant_">FSP</span>|&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;)(?:<span class="title function_">_</span>(?!.*(?:&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;|<span class="variable constant_">FSP</span>.*<span class="variable constant_">FSP</span>|&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;.*&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;))(&#123;&#123;<span class="variable constant_">BSN</span>&#125;&#125;|<span class="variable constant_">FSP</span>|&#123;&#123;<span class="variable constant_">POS</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">VERSION</span>&#125;&#125;|&#123;&#123;<span class="variable constant_">BETA</span>&#125;&#125;))&#123;<span class="number">0</span>,<span class="number">4</span>&#125;$/.<span class="title function_">test</span>(<span class="string">&#x27;&#123;&#123;BSN&#125;&#125;_FSP_&#123;&#123;POS&#125;&#125;_&#123;&#123;VERSION&#125;&#125;_&#123;&#123;BETA&#125;&#125;&#x27;</span>) ==&gt;<span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>ok! 欠的作业先初到了，老衲先行告退了。Good afternoon！！</p>
-<p> 敲码不易，请多多赞赏！</p>
+<p>ok! 欠的作业先初到这，老衲该闭目打坐了，先行告退。Good afternoon！！</p>
+<p> 文案可能存在诸多错别字，敬请忽略！</p>
 
     
 
