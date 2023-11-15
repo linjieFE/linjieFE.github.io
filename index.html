@@ -219,7 +219,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2023/11/14/Observer-Pattern-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E5%92%8CPublisher-Subscriber-Pattern-%E5%8F%91%E5%B8%83%E8%80%85-%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/" target="_blank">Observer Pattern(观察者模式)和Publisher-Subscriber Pattern(发布者/订阅者模式)</a>
+	  <a class="article-title" href="/2023/11/15/Observer-Pattern-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E5%92%8CPublisher-Subscriber-Pattern-%E5%8F%91%E5%B8%83%E8%80%85-%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/" target="_blank">Observer Pattern(观察者模式)和Publisher-Subscriber Pattern(发布者/订阅者模式)</a>
   
     </h1>
   
@@ -227,8 +227,8 @@
 
   
   
-<a href="/2023/11/14/Observer-Pattern-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E5%92%8CPublisher-Subscriber-Pattern-%E5%8F%91%E5%B8%83%E8%80%85-%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2023-11-14T14:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-14</time>
+<a href="/2023/11/15/Observer-Pattern-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E5%92%8CPublisher-Subscriber-Pattern-%E5%8F%91%E5%B8%83%E8%80%85-%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2023-11-15T14:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-15</time>
 </a>
 
   
@@ -260,7 +260,7 @@
 <h4 id="二者的区别："><a href="#二者的区别：" class="headerlink" title="二者的区别："></a>二者的区别：</h4><p>发布订阅模式：订阅者（Subscriber）把自己想订阅的事件注册（Subscribe）到调度中心（Event Channel），当发布者（Publisher）发布该事件（Publish Event）到调度中心，也就是该事件触发时，由调度中心统一调度（Fire Event）订阅者注册到调度中心的处理代码。</p>
 <p>观察者模式：定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新</p>
 <p>优点：观察者和被观察者是抽象耦合的，其二者建立了一套触发机制，松耦合<br>缺点：二者之间循环依赖，如果关系复杂，如观察者数量过多，还是会造成性能问题，解决方式是避免同步执行造成线程阻塞</p>
-<p>发布者&#x2F;订阅者模式：与观察者模式类似，但是核心区别是发布者与订阅者互相无耦合，并不知道通知与被通知的对方的具体身份，而是将注册的函数放在统一的调度中心进行管理<br>优点：发布者&#x2F;订阅者完全解耦，可扩展性高，常应用在分布式，紧耦合服务中<br>缺点：发布者解耦订阅者，这点既是主要优点，亦是缺点，打个比方，在Socket中，倘若服务端发送消息给客户端，不会在意是否发送成功，此时需要客户端返回接收到了消息才能算是保证了代码的可靠性和可用性<br>相关源码：码云地址</p>
+<p>发布者&#x2F;订阅者模式：与观察者模式类似，但是核心区别是发布者与订阅者互相无耦合，并不知道通知与被通知的对方的具体身份，而是将注册的函数放在统一的调度中心进行管理<br>优点：发布者&#x2F;订阅者完全解耦，可扩展性高，常应用在分布式，紧耦合服务中<br>缺点：发布者解耦订阅者，这点既是主要优点，亦是缺点，打个比方，在Socket中，倘若服务端发送消息给客户端，不会在意是否发送成功，此时需要客户端返回接收到了消息才能算是保证了代码的可靠性和可用性</p>
 <h4 id="简易版的消息中心"><a href="#简易版的消息中心" class="headerlink" title="简易版的消息中心"></a>简易版的消息中心</h4><p>起步<br>参考node中的 events事件触发器 我总结归类出了以下函数</p>
 <p>on :注册事件</p>
 <p>emit：触发事件</p>
@@ -309,7 +309,7 @@
 <p>Gitee：MessageCenter: 基于发布订阅模式实现的一个事件消息中心</p>
 <p>NPM：event-message-center - npm</p>
 <p>源码参考：message-center.js - npm</p>
-<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1116304">https://developer.aliyun.com/article/1116304</a></p>
+<p>码云： <a target="_blank" rel="noopener" href="https://gitee.com/DieHunter/myCode/tree/master/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F&%E5%8F%91%E5%B8%83%E8%80%85%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F">观察者模式&amp;发布者订阅者模式</a></p>
 
     
 
@@ -321,11 +321,22 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2023/11/14/Observer-Pattern-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E5%92%8CPublisher-Subscriber-Pattern-%E5%8F%91%E5%B8%83%E8%80%85-%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+      <a class="article-more-a" href="/2023/11/15/Observer-Pattern-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-%E5%92%8CPublisher-Subscriber-Pattern-%E5%8F%91%E5%B8%83%E8%80%85-%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
     </p>
     
 
