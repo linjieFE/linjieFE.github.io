@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://linjiefe.github.io">
   <title>前端.林杰</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -17,7 +17,7 @@
   <meta name="description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
 <meta property="og:type" content="website">
 <meta property="og:title" content="前端.林杰">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:url" content="http://linjiefe.github.io/page/2/index.html">
 <meta property="og:site_name" content="前端.林杰">
 <meta property="og:description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
 <meta property="og:locale" content="zh_CN">
@@ -209,6 +209,109 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <article id="post-关于haslayout" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2016/01/26/%E5%85%B3%E4%BA%8Ehaslayout/" target="_blank">关于IE的下的haslayout问题</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2016/01/26/%E5%85%B3%E4%BA%8Ehaslayout/" class="archive-article-date">
+        <time datetime="2016-01-26T02:58:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-26</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>今天早上我们一个前端同事GQL遇到一个问题。在IE7下position:relative层在动态渲染时出现偏移.<br>跟下面这个demo情景相似</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span></span></span><br><span class="line"><span class="meta"> <span class="string">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>IE7 absolute positioning bug<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">      <span class="selector-id">#panel</span> &#123; <span class="attribute">position</span>: relative; <span class="attribute">border</span>: solid <span class="number">1px</span> black; &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-id">#spacer</span> &#123; <span class="attribute">height</span>: <span class="number">100px</span>; &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-id">#footer</span> &#123; <span class="attribute">position</span>: absolute; <span class="attribute">bottom</span>: <span class="number">0px</span>; &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">function</span> <span class="title function_">toggle</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> spacer = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;spacer&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> style = <span class="string">&quot;block&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span> (spacer.<span class="property">style</span>.<span class="property">display</span> == <span class="string">&quot;block&quot;</span> || spacer.<span class="property">style</span>.<span class="property">display</span> == <span class="string">&quot;&quot;</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          style = <span class="string">&quot;none&quot;</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        spacer.<span class="property">style</span>.<span class="property">display</span> = style;</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;panel&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;toggle();&quot;</span>&gt;</span>Click me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;spacer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;footer&quot;</span>&gt;</span>This is some footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在IE7中，点击”Click me”，“This is some footer”没有随着边框向上走。在IE8&#x2F;9&#x2F;10&#x2F;11，firefox里面都是正常。</p>
+<p>二、原因分析<br>1 #panel没有布局，因此当#panel重新布局的时候，IE7没有重画#panel的孩子。<br>2 position:relative没有触发IE的hasLayout属性。只有当元素的hasLayout属性被设为了true，才能对自己和子孙元素进行尺寸计算和定位。<br>3 overflow:hidden和float:left和zoom:1都能触发hasLayout属性。</p>
+    
+    <a class="article-more-a" href="/2016/01/26/%E5%85%B3%E4%BA%8Ehaslayout/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2016/01/26/%E5%85%B3%E4%BA%8Ehaslayout/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <article id="post-Mac-OS-x-使用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -639,7 +742,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018-2023 <a href="http://yoursite.com/" target="_blank">林杰</a>
+    		&copy; 2018-2024 <a href="http://linjiefe.github.io/" target="_blank">林杰</a>
     	</div>
       	<div class="footer-right">
 			
@@ -758,14 +861,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mac技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -774,11 +869,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mac技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术分享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,11 +889,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
               </li>
              
               <li class="article-tag-list-item">
