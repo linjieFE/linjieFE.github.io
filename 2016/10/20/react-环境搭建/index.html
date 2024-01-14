@@ -17,13 +17,13 @@
 <meta property="og:site_name" content="前端.林杰">
 <meta property="og:description" content="1、node安装首先，需要node环境支持，如果你还没有安装node.js，请移步nodejs官网。 2、初始化项目1npm init 回车即可 到最后，你的项目根目录会多一个package.json的文件。 3、添加项目依赖接下来，我们打开package.json文件，给项目添加依赖包。当然，最简单的方法便是直接修改package.json文件，然后通过npm install安装依赖即可，但是考">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://linjiefe.github.io/img/react_files.jpg">
+<meta property="og:image" content="http://linjiefe.github.io/2016/10/20/react-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/react_files.jpg">
 <meta property="article:published_time" content="2016-10-20T10:12:15.000Z">
 <meta property="article:modified_time" content="2020-02-15T19:07:02.000Z">
 <meta property="article:author" content="林杰">
 <meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://linjiefe.github.io/img/react_files.jpg">
+<meta name="twitter:image" content="http://linjiefe.github.io/2016/10/20/react-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/react_files.jpg">
   
     <link rel="alternative" href="/atom.xml" title="前端.林杰" type="application/atom+xml">
   
@@ -284,7 +284,7 @@
 <h2 id="4、配置webpack"><a href="#4、配置webpack" class="headerlink" title="4、配置webpack"></a>4、配置webpack</h2><p>新建一个webpack.config.js文件。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">var webpack = require(<span class="string">&quot;webpack&quot;</span>)</span><br><span class="line"></span><br><span class="line">var path = require(<span class="string">&quot;path&quot;</span>)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line"></span><br><span class="line">devtool: <span class="string">&quot;inline-source-map&quot;</span>,</span><br><span class="line"></span><br><span class="line">entry: [</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;webpack-dev-server/client?http://127.0.0.1:8080/&quot;</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;webpack/hot/only-dev-server&quot;</span>,</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;./app&quot;</span></span><br><span class="line"></span><br><span class="line">],</span><br><span class="line"></span><br><span class="line">output: &#123;</span><br><span class="line"></span><br><span class="line">path: path.join(__dirname, <span class="string">&quot;public&quot;</span>),</span><br><span class="line"></span><br><span class="line">filename: <span class="string">&quot;bundle.js&quot;</span></span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">resolve: &#123;</span><br><span class="line"></span><br><span class="line">modulesDirectories: [<span class="string">&quot;node_modules&quot;</span>, <span class="string">&quot;app&quot;</span>],</span><br><span class="line"></span><br><span class="line">extensions: [<span class="string">&quot;&quot;</span>, <span class="string">&quot;.js&quot;</span>]</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">module: &#123;</span><br><span class="line"></span><br><span class="line">loaders: [</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>: /\.jsx?$/,</span><br><span class="line"></span><br><span class="line">exclude: /node_modules/,</span><br><span class="line"></span><br><span class="line">loaders: [<span class="string">&quot;react-hot&quot;</span>, <span class="string">&quot;babel?presets[]=react,presets[]=es2015&quot;</span>]</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>: /\.css?$/,</span><br><span class="line"></span><br><span class="line">exclude: /node_modules/,</span><br><span class="line"></span><br><span class="line">loaders: [<span class="string">&quot;style&quot;</span>, <span class="string">&quot;css&quot;</span>]</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">plugins: [</span><br><span class="line"></span><br><span class="line">new webpack.HotModuleReplacementPlugin(),</span><br><span class="line"></span><br><span class="line">new webpack.NoErrorsPlugin()</span><br><span class="line"></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>以上便是webpack的基本配置，具体的webpack配置以后会单独介绍。</p>
-<h2 id="5、项目文件"><a href="#5、项目文件" class="headerlink" title="5、项目文件"></a>5、项目文件</h2><p><img src="/img/react_files.jpg"></p>
+<h2 id="5、项目文件"><a href="#5、项目文件" class="headerlink" title="5、项目文件"></a>5、项目文件</h2><p><img src="/2016/10/20/react-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/react_files.jpg"></p>
 <p>index.html</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>React demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;bundle.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>index.js</p>
@@ -611,6 +611,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术分享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -619,15 +623,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mac技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,11 +631,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">终端</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,7 +639,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mac技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">终端</a>
               </li>
              
               <li class="article-tag-list-item">
