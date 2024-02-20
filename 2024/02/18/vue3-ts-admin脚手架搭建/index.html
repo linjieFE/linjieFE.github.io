@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://linjiefe.github.io">
-  <title>Archives: 2024 | 前端.林杰</title>
+  <title>vue3-ts-admin脚手架搭建 | 前端.林杰</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端.林杰">
-<meta property="og:url" content="http://linjiefe.github.io/archives/2024/index.html">
+  <meta name="description" content="开篇先说句废话。毕竟子曾经曰过 ——人与人的相处，都是从废话开始的。(孔子: 我没说过!)  因为有人反馈我的文章错别字特别多。我很欣慰，能收到建议说明我的东西还有人看。希望大家能保持,有什么建议尽管放心大胆的提，在我这，千万不要有什么心理压力，在乎面子不面子的，反正我也没打算真要改  话说这么多年，我的文理科也一直没闲着，一直在忙着相互切磋和较量。————比谁学的最差？后来发现，经过它们多年承让">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3-ts-admin脚手架搭建">
+<meta property="og:url" content="http://linjiefe.github.io/2024/02/18/vue3-ts-admin%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="前端.林杰">
-<meta property="og:description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
+<meta property="og:description" content="开篇先说句废话。毕竟子曾经曰过 ——人与人的相处，都是从废话开始的。(孔子: 我没说过!)  因为有人反馈我的文章错别字特别多。我很欣慰，能收到建议说明我的东西还有人看。希望大家能保持,有什么建议尽管放心大胆的提，在我这，千万不要有什么心理压力，在乎面子不面子的，反正我也没打算真要改  话说这么多年，我的文理科也一直没闲着，一直在忙着相互切磋和较量。————比谁学的最差？后来发现，经过它们多年承让">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://linjiefe.github.io/2024/02/18/vue3-ts-admin%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA/mySql.png">
+<meta property="article:published_time" content="2024-02-18T11:36:36.000Z">
+<meta property="article:modified_time" content="2024-02-20T13:46:17.972Z">
 <meta property="article:author" content="林杰">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="typescript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://linjiefe.github.io/2024/02/18/vue3-ts-admin%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA/mySql.png">
   
     <link rel="alternative" href="/atom.xml" title="前端.林杰" type="application/atom+xml">
   
@@ -204,41 +210,216 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vue3-ts-admin脚手架搭建" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/02/18/vue3-ts-admin%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-        <time datetime="2024-02-18T11:36:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-18</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/02/18/vue3-ts-admin%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA/" target="_blank">vue3-ts-admin脚手架搭建</a>
   
+    <h1 class="article-title" itemprop="name">
+      vue3-ts-admin脚手架搭建
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2024/02/18/vue3-ts-admin%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+        <time datetime="2024-02-18T11:36:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-18</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.8k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">7分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p style="color:#999">开篇先说句废话。毕竟子曾经曰过 ——人与人的相处，都是从废话开始的。<b style="text-decoration: line-through">(孔子: 我没说过!)</b></p>
+<span style="color:#999">
+因为有人反馈我的文章错别字特别多。我很欣慰，能收到建议说明我的东西还有人看。希望大家能保持,有什么建议尽管放心大胆的提，在我这，千万不要有什么心理压力，在乎面子不面子的，反正我也没打算真要改</span>
+
+<p><span style="color:#999">话说这么多年，我的文理科也一直没闲着，一直在忙着相互切磋和较量。————比谁学的最差？后来发现，经过它们多年承让，两者早已经没有了最差，只有更差！所以写错几个字纯属无心，我先尽量克制自己少写吧，毕竟它也跟随了我多年，已经有感情了。所以希望大家先忍一忍，让我慢慢跟它告别。在不影响阅读、不产生歧义的前题下就当做防伪标识来看就好。比如你想分辨一篇文章是不是我原创就显得很容易，看有没有错别字就能知道。是不是比毛爷爷上面的安全线容易辨别多了？这么一想，是不是感觉就好多了？！好了不贫了，开！始！正！题！吧！</span></p>
+<p>–&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 我是转入正题的分割线 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;–</p>
+<ul>
+<li><p>主要前端技术栈：<code>vue3</code>、<code>typesciprt</code>、<code>elementPlus</code></p>
+</li>
+<li><p>后端技术栈：<code>Nodejs</code>,<code>Express</code></p>
+<span id="more"></span></li>
+</ul>
+<h2 id="前端项目的安装与启动"><a href="#前端项目的安装与启动" class="headerlink" title="前端项目的安装与启动"></a>前端项目的安装与启动</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pnpm i</span><br><span class="line">pnpm dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="如何新建静态路由页面-test-vue"><a href="#如何新建静态路由页面-test-vue" class="headerlink" title="如何新建静态路由页面 test.vue"></a>如何新建静态路由页面 test.vue</h2><ol>
+<li>router&#x2F;modules&#x2F;test.ts</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&quot;/test&quot;</span>,</span><br><span class="line">  <span class="attr">redirect</span>: <span class="string">&quot;/test/index&quot;</span>,</span><br><span class="line">  <span class="attr">meta</span>: &#123;</span><br><span class="line">    <span class="attr">icon</span>: <span class="string">&quot;informationLine&quot;</span>,<span class="comment">//离线图标地址 https://icones.js.org/collection/twemoji</span></span><br><span class="line">    <span class="attr">title</span>: <span class="string">&quot;测试页面&quot;</span>,</span><br><span class="line">    <span class="comment">// showLink: false,</span></span><br><span class="line">    <span class="attr">rank</span>: <span class="number">11</span> <span class="comment">//页面层级排序权重值，越大越靠后</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">children</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&quot;/test/index&quot;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&quot;Test&quot;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&quot;@/views/test.vue&quot;</span>),</span><br><span class="line">      <span class="attr">meta</span>: &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&quot;测试页面&quot;</span>,</span><br><span class="line">        <span class="attr">showParent</span>: <span class="literal">true</span> <span class="comment">//当只有一个菜单时，需要在目录中展示在二级菜单里设为true，当只有一个菜单时默认false，有多个二级菜单时默认true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125; <span class="keyword">as</span> <span class="title class_">RouteConfigsTable</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>views&#x2F;test.vue</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup lang=<span class="string">&quot;ts&quot;</span>&gt;</span><br><span class="line"><span class="title function_">defineOptions</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Test&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>test<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="如何建动态路由页面"><a href="#如何建动态路由页面" class="headerlink" title="如何建动态路由页面"></a>如何建动态路由页面</h2><ol>
+<li>mock&#x2F;asyncRoutes.ts</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> testAsyncRouter = &#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&quot;/async&quot;</span>,</span><br><span class="line">  <span class="attr">redirect</span>: <span class="string">&quot;/async/index&quot;</span>,</span><br><span class="line">  <span class="attr">meta</span>: &#123;</span><br><span class="line">    <span class="attr">icon</span>: <span class="string">&quot;twemoji:billed-cap&quot;</span>,</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&quot;动态路由测试页面&quot;</span>,</span><br><span class="line">    <span class="comment">// showLink: false,</span></span><br><span class="line">    <span class="attr">rank</span>: <span class="number">11</span> <span class="comment">//页面层级排序权重值，越大越靠后</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">children</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">// path随便写，但前面必须有个 `/`</span></span><br><span class="line">      <span class="attr">path</span>: <span class="string">&quot;/async/index&quot;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&quot;Async&quot;</span>,</span><br><span class="line">      <span class="comment">// component对应的值前不需要加 / 值对应的是实际业务 `.vue` 或 `.tsx` 代码路径</span></span><br><span class="line">      <span class="attr">component</span>: <span class="string">&quot;async&quot;</span>,</span><br><span class="line">      <span class="attr">meta</span>: &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&quot;动态路由测试页面&quot;</span>,</span><br><span class="line">        <span class="attr">showParent</span>: <span class="literal">true</span> <span class="comment">//当只有一个菜单时，需要在目录中展示在二级菜单里设为true，当只有一个菜单时默认false，有多个二级菜单时默认true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;/getAsyncRoutes&quot;</span>,</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&quot;get&quot;</span>,</span><br><span class="line">    <span class="attr">response</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">success</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">data</span>: [permissionRouter, testAsyncRouter]</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">] <span class="keyword">as</span> <span class="title class_">MockMethod</span>[];</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>建view页面<code>views/async.vue</code></li>
+</ol>
+<h2 id="pure-admin-backend-启动后端"><a href="#pure-admin-backend-启动后端" class="headerlink" title="pure-admin-backend 启动后端"></a><a target="_blank" rel="noopener" href="https://github.com/pure-admin/pure-admin-backend">pure-admin-backend</a> 启动后端</h2><ol>
+<li><p>mac设备配置mySql 我用的8.0.20<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community/">macOS 10.15 (x86, 64-bit), DMG Archive</a></p>
+<ul>
+<li>不了解mysql的安装方式的同学<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903831298375693">点这里查看安装方法(mac OS)</a></li>
+</ul>
+</li>
+<li><p>下载老版<a target="_blank" rel="noopener" href="https://sequelpro.com/test-builds">sequelpro</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/17eb3b46e8ac">Sequel Pro的配置与链接</a></li>
+</ul>
+</li>
+</ol>
+<p>安装和启动</p>
+<ul>
+<li>来到项目的 src&#x2F;config&#x2F;index.ts 文件，查看第 53 行，将 mysql 的账号密码跟您的 mysql 保持一致</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mysql</span>: &#123;</span><br><span class="line">    <span class="attr">host</span>: <span class="string">&quot;localhost&quot;</span>,<span class="comment">//访问的Swagger地址要与host相同,避免出现CORS跨域问题</span></span><br><span class="line">    <span class="attr">charset</span>: <span class="string">&quot;utf8_general_ci&quot;</span>,</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&quot;root&quot;</span>,</span><br><span class="line">    <span class="attr">password</span>: <span class="string">&quot;zlj@123123&quot;</span>,</span><br><span class="line">    <span class="attr">database</span>:<span class="string">&#x27;mysql&#x27;</span><span class="comment">//指定要操作哪个数据库 // 如果没提前创建数据库，会报错 ER_BAD_DB_ERROR: Unknown database &#x27;weixin&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pnpm i</span><br><span class="line">pnpm start</span><br></pre></td></tr></table></figure>
+
+<p>自动启动Swagger文件 <code>http://localhost:3000/</code></p>
+<ul>
+<li><p>打开Swagger地址后先注册一个用户</p>
+</li>
+<li><p>用新注册的用户登陆后从 response 中找到 <code>token</code></p>
+</li>
+<li><p>在页面项部的 Authorize 进行授权，详见 <code>pure-admin-backend</code>文档（如更新和删除功能正常调用并返回，后端服务设置启动成功）</p>
+</li>
+</ul>
+<h3 id="下图为我的mySql配置信息"><a href="#下图为我的mySql配置信息" class="headerlink" title="下图为我的mySql配置信息"></a>下图为我的mySql配置信息</h3> <img src="/2024/02/18/vue3-ts-admin%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA/mySql.png" width="600" alt="点击查看大图" title="点击查看大图">
+
+<h2 id="如何与后端联调"><a href="#如何与后端联调" class="headerlink" title="如何与后端联调"></a>如何与后端联调</h2><ol>
+<li>本地开发的话，我们来到 <code>vite.config.ts </code>(opens new window)，参考下面代码配置本地跨域代理即可</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">proxy</span>: &#123;</span><br><span class="line">  <span class="string">&quot;/api&quot;</span>: &#123;</span><br><span class="line">    <span class="comment">// 这里填写后端地址</span></span><br><span class="line">    <span class="attr">target</span>: <span class="string">&quot;http://127.0.0.1:3000&quot;</span>,</span><br><span class="line">    <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">rewrite</span>: <span class="function"><span class="params">path</span> =&gt;</span> path.<span class="title function_">replace</span>(<span class="regexp">/^\/api/</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置好上面的跨域代理后，来到 <code>src/api</code> (opens new window)目录，这里我们先新建一个 <code>utils.ts</code> 文件用来配置环境，参考下面代码</li>
+</ol>
+<ul>
+<li>这里又分两种写法</li>
+</ul>
+<p>  第一种（也是最常用的一种，满足大多数场景，首选这种写法哦）：比如后端使用 spring cloud 微服务架构，不同服务可能会部署在不同机器上，这时候前端必定产生跨域，推荐部署前端项目首选 <a target="_blank" rel="noopener" href="https://www.nginx.com/resources/wiki/">nginx</a> (opens new window)，可以利用 <code>nginx</code> 的代理转发功能来解决跨域问题</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">baseUrlApi</span> = (<span class="params">url: <span class="built_in">string</span></span>) =&gt; <span class="string">`/api/<span class="subst">$&#123;url&#125;</span>`</span>;</span><br></pre></td></tr></table></figure>
+
+<p>  第二种：前端打包直接丢给后端，放到后端项目里一起部署，协议、主机、端口都相同了，就没有跨域问题</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// utils.ts</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">baseUrlApi</span> = (<span class="params">url: <span class="built_in">string</span></span>) =&gt;</span><br><span class="line">  process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&quot;development&quot;</span></span><br><span class="line">    ? <span class="string">`/api/<span class="subst">$&#123;url&#125;</span>`</span></span><br><span class="line">    : <span class="string">`http://127.0.0.1:3000/<span class="subst">$&#123;url&#125;</span>`</span>;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>写完上面的 utils.ts 后，继续在 <code>src/api</code> (opens new window)目录，我们再建一个 <code>user.ts</code> 文件，导出这个接口，供页面调用，参考下面代码</li>
+</ol>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; http &#125; <span class="keyword">from</span> <span class="string">&quot;@/utils/http&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; baseUrlApi &#125; <span class="keyword">from</span> <span class="string">&quot;./utils&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 登录 */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">getLogin</span> = (<span class="params">data?: <span class="built_in">object</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> http.<span class="property">request</span>&lt;<span class="built_in">any</span>&gt;(<span class="string">&quot;post&quot;</span>, <span class="title function_">baseUrlApi</span>(<span class="string">&quot;login&quot;</span>), &#123; data &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>最后将前端 <code>(frontend)</code> 项目原<code>mock/login.ts</code> 的文件删除 重新启动项目 这里登陆接口用到的就是 <code>admin-backend</code> 后端重新启动前端 这时即可登陆</p>
+<ol start="3">
+<li>第二个代理我们用一个<code>查询手机号归属地</code>免费接口</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://v.api.aa1.cn/api/phone/guishu-api.php">https://v.api.aa1.cn/api/phone/guishu-api.php</a></p>
+<h3 id="打包部署"><a href="#打包部署" class="headerlink" title="打包部署"></a>打包部署</h3><ul>
+<li>配置<code>.env.production</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 线上环境平台打包路径</span></span><br><span class="line">VITE_PUBLIC_PATH = ./</span><br><span class="line"></span><br><span class="line"><span class="comment"># 线上环境路由历史模式（Hash模式传&quot;hash&quot;、HTML5模式传&quot;h5&quot;、Hash模式带base参数传&quot;hash,base参数&quot;、HTML5模式带base参数传&quot;h5,base参数&quot;）</span></span><br><span class="line">VITE_ROUTER_HISTORY = <span class="string">&quot;hash&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否在打包时使用cdn替换本地库 替换 true 不替换 false</span></span><br><span class="line">VITE_CDN = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否启用gzip 开始填 “gzip” 不开启 “none”</span></span><br><span class="line">VITE_COMPRESSION = <span class="string">&quot;gzip&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开始打包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm build</span><br></pre></td></tr></table></figure>
+
+<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew info nginx <span class="comment">## 查看你的系统是否安装了nginx，并把dist文件放到 nginx 指定目录</span></span><br><span class="line"><span class="comment"># 如果没有安装nginx 使用下面命令安装 已装的自行忽略</span></span><br><span class="line">brew install nginx </span><br><span class="line"><span class="comment"># 配置好尝试启动 http://localhost:8080/dist/</span></span><br><span class="line">nginx</span><br></pre></td></tr></table></figure>
+
+<p>不熟悉nginx的点这里查看<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/207ffa96fd7d">mac安装Nginx及使用</a></p>
+<h3 id="websocket的使用"><a href="#websocket的使用" class="headerlink" title="websocket的使用"></a>websocket的使用</h3><p>websoket的使用可以参考我代码仓库welcome页面的demo</p>
+<p><a target="_blank" rel="noopener" href="https://vueuse.org/core/useWebSocket/#usewebsocket">useWebSocket</a></p>
+<p>以上内容收录于-&gt;<a target="_blank" rel="noopener" href="https://github.com/linjieFE/vue3_ts">我的代码仓库</a></p>
+<p>分前端(frontend)和后端(backend)目录,欢迎来提 <code>Issues</code>!</p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/wechat.jpg">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          林杰
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://linjiefe.github.io/2024/02/18/vue3-ts-admin脚手架搭建/" title="vue3-ts-admin脚手架搭建" target="_blank">http://linjiefe.github.io/2024/02/18/vue3-ts-admin脚手架搭建/</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -254,7 +435,7 @@
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -267,49 +448,105 @@
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://linjiefe.github.io/2024/02/18/vue3-ts-admin%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/01/11/%E5%85%B3%E4%BA%8Evue3/" class="archive-article-date">
-        <time datetime="2024-01-11T10:10:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-11</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2024/01/11/%E5%85%B3%E4%BA%8Evue3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于vue3</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/01/11/%E5%85%B3%E4%BA%8Evue3/" target="_blank">关于vue3</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -350,8 +587,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

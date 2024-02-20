@@ -18,7 +18,7 @@
 <meta property="og:description" content="在许多地方都能见到基于发布&#x2F;订阅模式和观察者模式设计的框架  函数或插件在浏览器中使用addEventListener(type,fn)对dom元素进行事件委托。 事件监听用户的异步操作Android中也有一个事件发布&#x2F;订阅的轻量级框架：EventBus，原理与web相似Socket.io的许多方法也是基于此类模式，监听与触发事件，批量广播等。 在Node中同样也有一个even">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-15T14:33:43.000Z">
-<meta property="article:modified_time" content="2023-11-15T14:08:25.813Z">
+<meta property="article:modified_time" content="2024-02-19T06:04:51.086Z">
 <meta property="article:author" content="林杰">
 <meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
@@ -264,7 +264,7 @@
 <ol>
 <li>函数或插件在浏览器中使用addEventListener(type,fn)对dom元素进行事件委托。</li>
 <li>事件监听用户的异步操作Android中也有一个事件发布&#x2F;订阅的轻量级框架：EventBus，原理与web相似Socket.io的许多方法也是基于此类模式，监听与触发事件，批量广播等。</li>
-<li>在Node中同样也有一个events事件触发器解决异步操作的同步响应</li>
+<li>在Node中同样也有一个events事件触发器解决异步操作的同步响应<span id="more"></span></li>
 </ol>
 <h3 id="观察者模式："><a href="#观察者模式：" class="headerlink" title="观察者模式："></a>观察者模式：</h3><p><code>Subject(主题，被观察者)</code>：当状态发送变化时，通知队列中关联对象</p>
 <p><code>Observer(观察者)</code>：当Subject发送消息时，通过回调获得信息</p>
@@ -372,12 +372,6 @@
         <li>
           <strong>本文链接：</strong>
           <a href="http://linjiefe.github.io/2023/11/15/Observer-Pattern-观察者模式-和Publisher-Subscriber-Pattern-发布者-订阅者模式/" title="Observer Pattern(观察者模式)和Publisher-Subscriber Pattern(发布者/订阅者模式)" target="_blank">http://linjiefe.github.io/2023/11/15/Observer-Pattern-观察者模式-和Publisher-Subscriber-Pattern-发布者-订阅者模式/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
-          
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
         </li>
         
       </ul>
@@ -649,23 +643,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mac技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">终端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,7 +655,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
             
             <div class="clearfix"></div>
@@ -885,16 +867,6 @@
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
   
   
-  
-  <script type="text/javascript" src="/lib/snow.js"></script>
-  <script type="text/javascript" src="/lib/jquery-2.1.4.min.js"></script>
-  <script>
-    snow.down();
-    $(window).resize(function() {
-      $("canvas").css("z-index","500").remove();
-      snow.down();
-    });
-  </script>
   
 </body>
 

@@ -10,16 +10,16 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="1、node安装首先，需要node环境支持，如果你还没有安装node.js，请移步nodejs官网。 2、初始化项目1npm init 回车即可 到最后，你的项目根目录会多一个package.json的文件。 3、添加项目依赖接下来，我们打开package.json文件，给项目添加依赖包。当然，最简单的方法便是直接修改package.json文件，然后通过npm install安装依赖即可，但是考">
+  <meta name="description" content="1、node安装首先，需要node环境支持，如果你还没有安装node.js，请移步nodejs官网。 2、初始化项目1npm init  回车即可 到最后，你的项目根目录会多一个package.json的文件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react 环境搭建">
 <meta property="og:url" content="http://linjiefe.github.io/2016/10/20/react-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="前端.林杰">
-<meta property="og:description" content="1、node安装首先，需要node环境支持，如果你还没有安装node.js，请移步nodejs官网。 2、初始化项目1npm init 回车即可 到最后，你的项目根目录会多一个package.json的文件。 3、添加项目依赖接下来，我们打开package.json文件，给项目添加依赖包。当然，最简单的方法便是直接修改package.json文件，然后通过npm install安装依赖即可，但是考">
+<meta property="og:description" content="1、node安装首先，需要node环境支持，如果你还没有安装node.js，请移步nodejs官网。 2、初始化项目1npm init  回车即可 到最后，你的项目根目录会多一个package.json的文件。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://linjiefe.github.io/2016/10/20/react-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/react_files.jpg">
 <meta property="article:published_time" content="2016-10-20T10:12:15.000Z">
-<meta property="article:modified_time" content="2020-02-15T19:07:02.000Z">
+<meta property="article:modified_time" content="2024-02-19T05:58:27.132Z">
 <meta property="article:author" content="林杰">
 <meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
@@ -264,7 +264,10 @@
     
     <h2 id="1、node安装"><a href="#1、node安装" class="headerlink" title="1、node安装"></a>1、node安装</h2><p>首先，需要node环境支持，如果你还没有安装node.js，请移步<a target="_blank" rel="noopener" href="https://nodejs.org/en/">nodejs官网</a>。</p>
 <h2 id="2、初始化项目"><a href="#2、初始化项目" class="headerlink" title="2、初始化项目"></a>2、初始化项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+
 <p>回车即可 到最后，你的项目根目录会多一个package.json的文件。</p>
+<span id="more"></span>
+
 <h2 id="3、添加项目依赖"><a href="#3、添加项目依赖" class="headerlink" title="3、添加项目依赖"></a>3、添加项目依赖</h2><p>接下来，我们打开package.json文件，给项目添加依赖包。当然，最简单的方法便是直接修改package.json文件，然后通过npm install安装依赖即可，但是考虑到依赖包的不断更新迭代，或许今后的不久就已经不是当前版本，为了能保证，我们每个看到这边文章的童鞋都是用的最新依赖包，我们直接通过npm install  **  –save-dev方式来安装我们依赖包。</p>
 <p>首先，我们来安装dependencies：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react react-dom lodash</span><br></pre></td></tr></table></figure>
@@ -346,12 +349,6 @@
         <li>
           <strong>本文链接：</strong>
           <a href="http://linjiefe.github.io/2016/10/20/react-环境搭建/" title="react 环境搭建" target="_blank">http://linjiefe.github.io/2016/10/20/react-环境搭建/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
-          
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
         </li>
         
       </ul>
@@ -623,23 +620,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mac技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">终端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,7 +632,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
             
             <div class="clearfix"></div>
@@ -859,16 +844,6 @@
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
   
   
-  
-  <script type="text/javascript" src="/lib/snow.js"></script>
-  <script type="text/javascript" src="/lib/jquery-2.1.4.min.js"></script>
-  <script>
-    snow.down();
-    $(window).resize(function() {
-      $("canvas").css("z-index","500").remove();
-      snow.down();
-    });
-  </script>
   
 </body>
 
