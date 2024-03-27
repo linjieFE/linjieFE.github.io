@@ -211,6 +211,148 @@
             
 
   
+    <article id="post-webGL之three-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2024/03/27/webGL%E4%B9%8Bthree-js/" target="_blank">webGL之three.js</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2024/03/27/webGL%E4%B9%8Bthree-js/" class="archive-article-date">
+        <time datetime="2024-03-27T05:14:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-27</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="threeJs文件包下载"><a href="#threeJs文件包下载" class="headerlink" title="threeJs文件包下载"></a>threeJs文件包下载</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/mrdoob/three.js/releases">threejs官方文件包所有版本</a></p>
+</li>
+<li><p><a href="www.webgl3d.cn">Threejs中文网(电子书课件)</a></p>
+</li>
+</ul>
+<h2 id="文件资源目录介绍"><a href="#文件资源目录介绍" class="headerlink" title="文件资源目录介绍"></a>文件资源目录介绍</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">three.<span class="property">js</span>-文件包</span><br><span class="line">└───build——three.<span class="property">js</span>相关库，可以引入你的.<span class="property">html</span>文件中。</span><br><span class="line">    │</span><br><span class="line">└───docs——<span class="title class_">Three</span>.<span class="property">js</span> <span class="variable constant_">API</span>文档文件</span><br><span class="line">    │───index.<span class="property">html</span>——打开该文件，本地离线方式预览threejs文档</span><br><span class="line">└───examples——大量的3D案例，是你平时开发参考学习的最佳资源</span><br><span class="line">    │───jsm——threejs各种功能扩展库</span><br><span class="line">└───src——<span class="title class_">Three</span>.<span class="property">js</span>引擎的源码，有兴趣可以阅读。</span><br><span class="line">    │</span><br><span class="line">└───editor——<span class="title class_">Three</span>.<span class="property">js</span>的可视化编辑器，可以编辑3D场景</span><br><span class="line">    │───index.<span class="property">html</span>——打开应用程序</span><br></pre></td></tr></table></figure>
+
+<h2 id="工欲善其事，必先利其器——-gt-本地静态服务器开发环境"><a href="#工欲善其事，必先利其器——-gt-本地静态服务器开发环境" class="headerlink" title="工欲善其事，必先利其器——&gt; 本地静态服务器开发环境"></a>工欲善其事，必先利其器——&gt; 本地静态服务器开发环境</h2><p>正式的web项目开发，往往会用webpack或vite或其它方式配置一个开发环境。如果只是学习threejs的话，没必要这么麻烦 选择一个轻量级的应用打包工具就可以，比如<a target="_blank" rel="noopener" href="https://parceljs.org/docs/">Parcel</a> 或者通过代码编辑器快速创建本地静态服务器，比如vsocde，安装<code>live-server</code>插件即可。</p>
+<h3 id="vscode配置live-server插件"><a href="#vscode配置live-server插件" class="headerlink" title="vscode配置live-server插件"></a>vscode配置<code>live-server</code>插件</h3><p>不同代码编辑器创建本地静态服务器方式不同，课程就以vscode为了大家演示。</p>
+<p>安装 - vscode软件界面左侧，点击扩展，输入live-server关键词查询安装。</p>
+<p>使用 - 如果你想预览代码3D效果，打开对应.html文件，右键点击Open with Live Server即可。</p>
+<p>我个人是选用了<code>vite</code> + <code>vue3</code> 搭建了一个本地web服务</p>
+<h2 id="创建3D场景三要素场景Scene、相机Camera、渲染器Renderer三个基本概念"><a href="#创建3D场景三要素场景Scene、相机Camera、渲染器Renderer三个基本概念" class="headerlink" title="创建3D场景三要素场景Scene、相机Camera、渲染器Renderer三个基本概念"></a>创建3D场景三要素<code>场景Scene</code>、<code>相机Camera</code>、<code>渲染器Renderer</code>三个基本概念</h2><h3 id="物体形状：几何体Geometry"><a href="#物体形状：几何体Geometry" class="headerlink" title="物体形状：几何体Geometry"></a>物体形状：几何体Geometry</h3><img src="/2024/03/27/webGL%E4%B9%8Bthree-js/Geometry.png" width="600" alt="点击查看大图" title="点击查看大图">
+
+<h3 id="物体外观：材质Material"><a href="#物体外观：材质Material" class="headerlink" title="物体外观：材质Material"></a>物体外观：材质Material</h3><img src="/2024/03/27/webGL%E4%B9%8Bthree-js/Material.png" width="600" alt="点击查看大图" title="点击查看大图">
+
+<h3 id="相机-Camera-–-透视投影相机PerspectiveCamera"><a href="#相机-Camera-–-透视投影相机PerspectiveCamera" class="headerlink" title="相机 Camera – 透视投影相机PerspectiveCamera"></a>相机 Camera – 透视投影相机PerspectiveCamera</h3><p>透视投影相机的四个参数<code>fov</code>, <code>aspect</code>, <code>near</code>, <code>far</code>构成一个四棱台3D空间，被称为视锥体，只有视锥体之内的物体，才会渲染出来，视锥体范围之外的物体不会显示在Canvas画布上。</p>
+<img src="/2024/03/27/webGL%E4%B9%8Bthree-js/Sense.png" width="600" alt="点击查看大图" title="点击查看大图">
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// width和height用来设置Three.js输出的Canvas画布尺寸(像素px)</span></span><br><span class="line"><span class="keyword">const</span> width = <span class="number">800</span>; <span class="comment">//宽度</span></span><br><span class="line"><span class="keyword">const</span> height = <span class="number">500</span>; <span class="comment">//高度</span></span><br><span class="line"><span class="comment">// 30:视场角度, width / height:Canvas画布宽高比, 1:近裁截面, 3000：远裁截面</span></span><br><span class="line"><span class="comment">// 参数介绍 - PerspectiveCamera( fov, aspect, near, far )</span></span><br><span class="line"><span class="keyword">const</span> camera = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">PerspectiveCamera</span>(<span class="number">30</span>, width / height, <span class="number">1</span>, <span class="number">3000</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<table>
+    <thead>
+        <tr>
+            <th>参数</th>
+            <th>含义</th>
+            <th>默认值</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>fov</td>
+            <td>相机视锥体竖直方向视野角度</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>aspect</td>
+            <td>相机视锥体水平方向和竖直方向长度比，一般设置为Canvas画布宽高比width / height</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>near</td>
+            <td>相机视锥体近裁截面相对相机距离</td>
+            <td>0.1</td>
+        </tr>
+        <tr>
+            <td>far</td>
+            <td>相机视锥体远裁截面相对相机距离，far-near构成了视锥体高度方向</td>
+            <td>2000</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3 id="光源对物体表面影响"><a href="#光源对物体表面影响" class="headerlink" title="光源对物体表面影响"></a>光源对物体表面影响</h3><p>threejs提供的网格材质，有的受光照影响，有的不受光照影响。</p>
+<img src="/2024/03/27/webGL%E4%B9%8Bthree-js/light.png" width="600" alt="点击查看大图" title="点击查看大图">
+
+<ul>
+<li><p>光源简介</p>
+<img src="/2024/03/27/webGL%E4%B9%8Bthree-js/lightType.png" width="600" alt="点击查看大图" title="点击查看大图">
+</li>
+<li><p>点光、平行光与环境光</p>
+<img src="/2024/03/27/webGL%E4%B9%8Bthree-js/lightPosition.png" width="600" alt="点击查看大图" title="点击查看大图">
+</li>
+<li><p>相机控件OrbitControls<br>平时开发调试代码，或者展示模型的时候，可以通过相机控件OrbitControls实现旋转缩放预览效果。<br>OrbitControls使用<br>你可以打开课件案例源码测试下效果。</p>
+</li>
+</ul>
+<p>旋转：拖动鼠标左键<br>缩放：滚动鼠标中键<br>平移：拖动鼠标右键</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2024/03/27/webGL%E4%B9%8Bthree-js/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue3-ts-admin脚手架搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1090,105 +1232,10 @@
 
 
   
-    <article id="post-关于haslayout" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
   
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2016/01/26/%E5%85%B3%E4%BA%8Ehaslayout/" target="_blank">关于IE的下的haslayout问题</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2016/01/26/%E5%85%B3%E4%BA%8Ehaslayout/" class="archive-article-date">
-        <time datetime="2016-01-26T02:58:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-26</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>今天早上我们一个前端同事GQL遇到一个问题。在IE7下position:relative层在动态渲染时出现偏移.<br>跟下面这个demo情景相似</p>
-    
-    <a class="article-more-a" href="/2016/01/26/%E5%85%B3%E4%BA%8Ehaslayout/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2016/01/26/%E5%85%B3%E4%BA%8Ehaslayout/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -1338,15 +1385,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
             
             <div class="clearfix"></div>
